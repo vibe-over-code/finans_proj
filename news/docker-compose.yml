@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  news-fetcher:
+    build: .
+    container_name: financial_news_service
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+    environment:
+      - PORTFOLIO_SERVICE_URL=http://portfolio-service:8000/api/check
+      - BATCH_SIZE=5
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10mb"
+        max-file: "3"
