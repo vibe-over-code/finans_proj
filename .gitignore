@@ -181,3 +181,4 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 news/data/financial_news.json
+/news/data
