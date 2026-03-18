@@ -1,402 +1,3442 @@
 [
     {
-        "title": "Stocks making the biggest moves midday: Adobe, Ulta Beauty, Insulet, Klarna, Once Upon a Farm & more",
-        "link": "https://www.cnbc.com/2026/03/13/stocks-making-the-biggest-moves-midday-adbe-ulta-podd-klar-ofrm.html",
-        "published": "Fri, 13 Mar 2026 16:40:19 GMT",
-        "summary": "These are some of the stocks posting the largest moves midday.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "\"Покупать лучше уже сейчас\". Сколько доллар будет стоить к маю?",
+        "link": "https://www.gazeta.ru/business/2026/03/17/22653535.shtml",
+        "published": "Tue, 17 Mar 2026 14:01:54 +0300",
+        "summary": "Курс доллара 17 марта 2026 года поднимался выше 82 рублей впервые с декабря 2025 года. Экономисты, опрошенные \"Газетой.Ru\", ожидают дальнейшего подорожания американской валюты. По их прогнозу, к маю курс доллара составит 80-87 рублей. Эксперты не исключили и доллар по 100 рублей при негативном сценарии развития событий. Россиянам, которые планируют поездки на майские праздники за рубеж, лучше покупать валюту уже сейчас, предупредили экономисты.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.180799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Dividend stocks are catching up to tech stocks on a key earnings metric at a critical time for the market",
-        "link": "https://www.cnbc.com/2026/03/13/dividend-stocks-tech-earnings-growth-market.html",
-        "published": "Fri, 13 Mar 2026 16:56:09 GMT",
-        "summary": "Dividend stocks are closing the earnings growth gap with tech stocks, a reason for investors seeking safety in a volatile market to favor income opportunities.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Алюминиевая революция: \"Русал\" запустил электролизер с инертными анодами",
+        "link": "https://www.gazeta.ru/business/2026/03/17/22650067.shtml",
+        "published": "Tue, 17 Mar 2026 12:53:09 +0300",
+        "summary": "\"Русал\" ввел в эксплуатацию первый электролизер на инертных анодах в рамках программы замены технологии ЭкоСодерберг. Это открывает возможность для будущей модернизации значительной части российского алюминиевого производства, поскольку на этой технологии работают крупнейшие отечественные заводы. Инертные аноды позволяют не только обнулить выбросы парниковых газов при электролизе алюминия, но и обеспечивают выделение чистого кислорода. Подробности -- в материале \"Газеты.Ru\".",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Inside JPMorgan Chase's push to become the startup world’s new Silicon Valley Bank",
-        "link": "https://www.cnbc.com/2026/03/13/jpmorgan-silicon-valley-bank-startup-bank.html",
-        "published": "Fri, 13 Mar 2026 18:02:26 GMT",
-        "summary": "For JPMorgan Chase, winning the niche of startup banking from rivals is about more than just gaining deposits: It's a bet to future-proof the largest U.S. bank.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Санкции вернутся, но новых не будет: что ждет российскую нефть",
+        "link": "https://www.gazeta.ru/business/2026/03/15/22644469.shtml",
+        "published": "Sun, 15 Mar 2026 18:38:24 +0300",
+        "summary": "США не будут вводить новые санкции против российской нефтяной промышленности, утверждает Financial Times. По данным издания, американские чиновники уже объявили об этом европейским коллегам. Тем временем Дональд Трамп обещает вернуть ограничения, которые действовали ранее, но были временно сняты из-за войны на Ближнем Востоке. Однако произойдет это, по его словам, только после стабилизации цен на нефть. Подробности -- в материале \"Газеты.Ru\".",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves premarket: Adobe, Coinbase, Ulta Beauty, Nio & more",
-        "link": "https://www.cnbc.com/2026/03/13/stocks-making-the-biggest-moves-premarket-.html",
-        "published": "Fri, 13 Mar 2026 11:28:55 GMT",
-        "summary": "These are the stocks posting the largest moves in the premarket.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "\"По копеечке\": в России предложили ввести сбор при выезде за границу",
+        "link": "https://www.gazeta.ru/business/2026/03/13/22638379.shtml",
+        "published": "Fri, 13 Mar 2026 19:56:50 +0300",
+        "summary": "В Российском союзе туриндустрии предложили взимать с россиян сбор за выезд за границу. Президент организации Илья Уманский отметил, что за счет этих средств можно создать гарантийный фонд, который мог бы помочь обеспечить возврат всех граждан на родину в экстренной ситуации. Инициативу поддержали некоторые игроки туристического рынка. При этом в Госдуме заявили, что россияне не должны нести коллективную ответственность за всех путешественников в нестабильные регионы.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves after hours: Adobe, Ulta Beauty, Lennar & more",
-        "link": "https://www.cnbc.com/2026/03/12/stocks-making-the-biggest-moves-after-hours-adbe-ulta-len.html",
-        "published": "Thu, 12 Mar 2026 22:52:38 GMT",
-        "summary": "These are the stocks posting the largest moves in extended trading.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "\"Осторожное снижение\". Какое решение ЦБ примет по ключевой ставке 20 марта?",
+        "link": "https://www.gazeta.ru/business/2026/03/13/22618741.shtml",
+        "published": "Fri, 13 Mar 2026 08:02:18 +0300",
+        "summary": "ЦБ на заседании 20 марта с большой долей вероятности снизит ключевую ставку до 14-15% годовых. Такой прогноз \"Газете.Ru\" дали опрошенные экономисты и финансовые аналитики. По их словам, инфляция и инфляционные ожидания замедляются, что может стать основанием для уменьшения ставки. Эксперты ожидают, что ставки по вкладам могут упасть уже в течение нескольких дней после заседания, а кредиты будут дешеветь медленнее.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Markets' hopes for Fed interest rate cuts are rapidly fading away",
-        "link": "https://www.cnbc.com/2026/03/12/markets-hopes-for-fed-interest-rate-cuts-are-rapidly-fading-away.html",
-        "published": "Thu, 12 Mar 2026 20:41:02 GMT",
-        "summary": "As both energy prices and inflation fears pop higher, expectations for cuts are sliding lower.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Банковский рынок Турции. Freedom Holding Corp. рассказал о планах компании",
+        "link": "https://www.gazeta.ru/business/2026/03/11/22625689.shtml",
+        "published": "Wed, 11 Mar 2026 16:11:12 +0300",
+        "summary": "Казахстанская финансовая группа Freedom Holding Corp. планирует выйти на банковский рынок Турции через приобретение контрольного пакета местного банка TurkishBank. Сделка пока находится на стадии согласования и должна получить одобрение регулирующих органов. О планах компании сообщает издание Turkey Today.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves premarket: Bumble, Hims & Hers Health, Blue Owl, Netskope & more",
-        "link": "https://www.cnbc.com/2026/03/12/stocks-making-the-biggest-moves-premarket-bmbl-hims-owl-ntsk.html",
-        "published": "Thu, 12 Mar 2026 12:16:33 GMT",
-        "summary": "These are the stocks posting the largest moves in premarket trading.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "\"Наступить на хвост европейской гидре\". Россия перенаправит газ из ЕС в Азию",
+        "link": "https://www.gazeta.ru/business/2026/03/06/22605487.shtml",
+        "published": "Fri, 06 Mar 2026 23:29:53 +0300",
+        "summary": "Часть российского сжиженного природного газа (СПГ) перенаправят из Европы в дружественные страны, которые готовы заключать долгосрочные контракты, заявил вице-премьер Александр Новак. По его словам, поставки начнутся уже в ближайшее время. Такое решение принято после соответствующего поручения президента Владимира Путина. Эксперты считают, что ЕС лишится российского газа в самый неподходящий момент.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Lobster buffet: China’s tech firms feast on OpenClaw as companies race to deploy AI agents",
-        "link": "https://www.cnbc.com/2026/03/12/china-openclaw-ai-agent-adoption-tech-companies-government-support-lobster-shrimp.html",
-        "published": "Thu, 12 Mar 2026 23:31:34 GMT",
-        "summary": "China-based usage of OpenClaw has already topped that of the U.S., while driving demand for Chinese lower-cost AI models.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Называл верующих лохами и отрекся от семьи: кто такой Герман Стерлигов, призвавший ввести Юрьев день",
+        "link": "https://www.gazeta.ru/business/22588159/german-sterligov-chto-izvestno.shtml",
+        "published": "Tue, 03 Mar 2026 19:54:45 +0300",
+        "summary": "Скандально известный предприниматель Герман Стерлигов предложил вернуть Юрьев день -- когда россияне могли бы увольняться и менять работу. По его мнению, это особенно актуально для молодежи, которая \"скачет, как блохи, по работам\". Кто такой Герман Стерлигов, как он заработал состояние, почему предлагал клеймить эскортниц и бить жен розгами и за что лишил наследства собственных детей — в материале \"Газеты.Ru\".",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves midday: Oracle, Papa John's, Nebius, Campbell's, Serve Robotics, Cadre and more",
-        "link": "https://www.cnbc.com/2026/03/11/stocks-making-the-biggest-moves-midday-orcl-nbis-cpb-serv-cdre.html",
-        "published": "Wed, 11 Mar 2026 17:19:04 GMT",
-        "summary": "These are some of the stocks posting the largest midday moves.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Патентный ребус. Спор вокруг технологии очистки нефти ИНК продолжился",
+        "link": "https://www.gazeta.ru/business/2026/03/02/22575367.shtml",
+        "published": "Mon, 02 Mar 2026 16:16:41 +0300",
+        "summary": "Спор вокруг технологии нейтрализации серосодержащих соединений в нефти, разработанной Иркутской нефтяной компанией (ИНК), получил окончательное судебное решение — в пользу ИНК. Суд по интеллектуальным правам признал разработку ИНК независимой. Тем не менее проигравшая сторона, ООО НПП \"Нефтехимсинтез\", продолжает попытки оспорить чистоту технологии административным путем. Компания обратилась в Роспатент, который ранее зарегистрировал патент ИНК. Ведомство перенаправило письмо в правоохранительные органы.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "JPMorgan Chase reins in lending to private credit firms after marking down software loans",
-        "link": "https://www.cnbc.com/2026/03/11/jpmorgan-reins-lending-private-credit-marks-down-software-loans.html",
-        "published": "Wed, 11 Mar 2026 12:57:44 GMT",
-        "summary": "JPMorgan's move shows that the biggest U.S. bank by assets wants to get ahead of potential turbulence involving private credit loans to software companies.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "\"Ночевали на парковке в Дубае\": тысячи россиян застряли в ОАЭ из-за конфликта США и Ирана",
+        "link": "https://www.gazeta.ru/business/2026/03/02/22579375.shtml",
+        "published": "Mon, 02 Mar 2026 15:49:26 +0300",
+        "summary": "Из-за конфликта на Ближнем Востоке и закрытия воздушного пространства в ОАЭ застряли 50 тыс. россиян. Многие из них столкнулись с проблемами: им приходится самим искать и оплачивать жилье, так как авиакомпании не помогают с размещением. Также туристов принудительно выселяют из отелей из-за приезда других гостей. Те, кто запланировал отпуск в ОАЭ, но еще не вылетел в страну, теперь пытаются отменить туры, но туроператоры заставляют их выплачивать огромные штрафы.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves premarket: Oracle, AeroVironment, Nike, CarMax and more",
-        "link": "https://www.cnbc.com/2026/03/11/stocks-making-the-biggest-moves-premarket-orcl-avav-nke.html",
-        "published": "Wed, 11 Mar 2026 14:57:41 GMT",
-        "summary": "These are the stocks posting the largest moves in premarket trading.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Как война Израиля и США с Ираном повлияет на рубль и нефть",
+        "link": "https://www.gazeta.ru/business/2026/03/02/22578553.shtml",
+        "published": "Mon, 02 Mar 2026 14:02:34 +0300",
+        "summary": "Напряжение на Ближнем Востоке в очередной раз стало главным драйвером мировых сырьевых рынков. Риски блокады Ормузского пролива спровоцировали резкий скачок цен на нефть: за один день Brent подорожала на 7–13 %, достигнув максимума за 14 месяцев. Одновременно рубль оказался под двойным давлением — нефтяной фактор тянет его вверх, а глобальный risk-off и укрепление доллара как \"тихой гавани\" толкают вниз. Экономисты и аналитики рассказали \"Газете.Ru\", укрепится ли рубль на фоне нестабильности и что ожидает сырьевые рынки в будущем.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves midday: Rivian, Hims & Hers, BioNTech, Vertex Pharmaceuticals & more",
-        "link": "https://www.cnbc.com/2026/03/10/stocks-making-the-biggest-moves-midday-rivn-hims-kss-casy-vrtx.html",
-        "published": "Tue, 10 Mar 2026 17:32:44 GMT",
-        "summary": "These are some of the stocks seeing the largest midday moves.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Роман с Собчак, дружба с Кадыровым: чем известен Умар Джабраилов, покончивший с собой в Москве",
+        "link": "https://www.gazeta.ru/business/22578517/umar-dzhabrailov-biografiya.shtml",
+        "published": "Mon, 02 Mar 2026 13:20:09 +0300",
+        "summary": "В ночь на 2 марта в элитном жилом комплексе Москвы было обнаружено тело чеченского предпринимателя, экс-сенатора Умара Джабраилова. Предположительно, бизнесмен покончил с собой. Кем был Умар Джабраилов, чем он запомнился и какие громкие скандалы сопровождали его на протяжении жизни — в материале \"Газеты.Ru\".",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves premarket: Kohl's, Casey's General Stores, Vertex Pharmaceuticals and more",
-        "link": "https://www.cnbc.com/2026/03/10/stocks-making-the-biggest-moves-premarket-kss-casy-vrtx.html",
-        "published": "Tue, 10 Mar 2026 11:54:38 GMT",
-        "summary": "These are the stocks posting the largest moves in early trading.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Задержан заместитель председателя правления \"Газпром нефти\". Кто он и в чем его подозревают?",
+        "link": "https://www.gazeta.ru/business/2026/02/27/22564297.shtml",
+        "published": "Fri, 27 Feb 2026 11:52:29 +0300",
+        "summary": "В Санкт-Петербурге 27 февраля 2026 года задержали зампреда правления \"Газпром нефти\" Антона Джалябова. Его подозревают в получении взяток на сумму более 29 млн рублей. Следствие связывает два эпизода предполагаемого преступления с его деятельностью в 2020–2021 годах. По версии правоохранительных органов, часть взяток могла выражаться в вещах и услугах, в том числе в катере за 1,7 млн рублей, однако окончательные выводы о виновности или невиновности будет делать суд. Кто такой Антон Джалябов и что известно о его деле — в материале \"Газеты.Ru\".",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Surging oil prices could wipe out benefits from Trump's 'big beautiful bill'",
-        "link": "https://www.cnbc.com/2026/03/10/rising-oil-prices-may-wipe-out-effects-of-trumps-big-beautiful-bill.html",
-        "published": "Tue, 10 Mar 2026 14:16:40 GMT",
-        "summary": "Estimates from Wall Street project that if oil prices stay elevated for too long, consumers will lose as much as they gain from the new tax law.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "\"Недружественный шаг\": клиникам в Индии запретили работать со страховщиками из России",
+        "link": "https://www.gazeta.ru/business/2026/02/21/22535587.shtml",
+        "published": "Sat, 21 Feb 2026 17:39:13 +0300",
+        "summary": "Индия запретила частным клиникам работать с представителями российских страховых компаний. Ранее такой запрет действовал только для государственных больниц, однако теперь распространяется на все медучреждения. Об этом стало известно на фоне новостей о смерти российской туристки на Гоа. Ее родственники сообщили, что госпиталь отказался выдавать тело россиянки без оплаты счетов, а в страховой посоветовали им покрыть расходы самостоятельно.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "There's another energy market that may get hit harder than oil by Strait of Hormuz closure",
-        "link": "https://www.cnbc.com/2026/03/09/theres-another-energy-market-that-may-get-hit-harder-than-oil-by-strait-of-hormuz-closure.html",
-        "published": "Tue, 10 Mar 2026 14:06:17 GMT",
-        "summary": "Roughly 20% of global liquefied natural gas flows through the Strait.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "\"Капля в море для ипотеки\". Почему ЦБ снова понизил ключевую ставку?",
+        "link": "https://www.gazeta.ru/business/2026/02/13/22494553.shtml",
+        "published": "Fri, 13 Feb 2026 16:41:29 +0300",
+        "summary": "Центробанк на заседании 13 февраля снизил ключевую ставку на 50 базисных пунктов, до 15,5%. Это решение совпало с прогнозом участников финансового рынка. По мнению экономистов и аналитиков, опрошенных \"Газетой.Ru\", ставки по вкладам и кредитам начнут снижаться на сопоставимую величину. При этом ставки по депозитам будут уменьшаться даже быстрее и могут достигнуть 10% уже в первом полугодии 2026 года, считают эксперты. По их словам, заемщикам по ипотеке и потребкредитам придется ждать снижения ставок дольше, по всей видимости, до лета. Что будет с рублем и какое решение по ключевой ставке ЦБ может принять в марте — в нашем материале.",
+        "source": "Газета.Ru - Бизнес",
+        "source_url": "https://www.gazeta.ru/export/rss/business.xml",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:08.181799",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves midday: Chevron, Hims and Hers, Xenon Pharma, Vertiv and more",
-        "link": "https://www.cnbc.com/2026/03/09/stocks-making-the-biggest-moves-midday-cvx-hims-xene-vrt-lite-.html",
-        "published": "Mon, 09 Mar 2026 18:56:36 GMT",
-        "summary": "These are some of the stocks posting the largest midday moves.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Банки ужесточили выдачу автокредитов",
+        "link": "https://lenta.ru/news/2026/03/18/banki-uzhestochili-vydachu-avtokreditov/",
+        "published": "Wed, 18 Mar 2026 06:34:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Three bear markets in stocks were caused by oil shocks — Here's how long they lasted",
-        "link": "https://www.cnbc.com/2026/03/09/heres-how-long-the-three-oil-shock-induced-bear-markets-lasted.html",
-        "published": "Mon, 09 Mar 2026 16:28:43 GMT",
-        "summary": "As the fallout in the oil markets from the U.S.-Iran war continues, here’s what severe oil shocks have done to the S&amp;P 500 in the past.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Долина нашла способ обезопасить себя от мошенников",
+        "link": "https://lenta.ru/news/2026/03/18/dolina-nashla-sposob-obezopasit-sebya-ot-moshennikov/",
+        "published": "Wed, 18 Mar 2026 06:28:05 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "The $100 oil playbook: How pro investors are investing around this energy shock",
-        "link": "https://www.cnbc.com/2026/03/09/the-100-oil-playbook-how-pro-investors-are-investing-around-this-energy-shock.html",
-        "published": "Mon, 09 Mar 2026 16:13:36 GMT",
-        "summary": "Many say the focus now is on maintaining exposure to equities while diversifying across sectors and regions that can better withstand inflation and volatility.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Посольство оценило последствия санкций против России для Британии",
+        "link": "https://lenta.ru/news/2026/03/18/posolstvo-otsenilo-posledstviya-sanktsiy-protiv-rossii-dlya-britanii/",
+        "published": "Wed, 18 Mar 2026 05:54:05 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves premarket: Hims & Hers Health, oil stocks, Live Nation Entertainment & more",
-        "link": "https://www.cnbc.com/2026/03/09/stocks-making-the-biggest-moves-premarket-hims-lyv.html",
-        "published": "Mon, 09 Mar 2026 12:50:19 GMT",
-        "summary": "These are the stocks posting the largest moves in premarket trading.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "В Госдуме назвали срок подорожания доллара до 100 рублей",
+        "link": "https://lenta.ru/news/2026/03/18/v-gosdume-nazvali-srok-podorozhaniya-dollara-do-100-rubley/",
+        "published": "Wed, 18 Mar 2026 04:28:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Why China can withstand oil's surge past $100 more easily than other countries",
-        "link": "https://www.cnbc.com/2026/03/09/china-oil-shock-iran-war-hormuz-energy-transition.html",
-        "published": "Mon, 09 Mar 2026 13:03:49 GMT",
-        "summary": "The latest Middle East tensions sheds light on how the world's three largest oil consumers have taken different approaches to energy, with global consequences.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "В России упали цены на один продукт",
+        "link": "https://lenta.ru/news/2026/03/18/v-rossii-upali-tseny-na-odin-produkt/",
+        "published": "Wed, 18 Mar 2026 03:22:30 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Oil price surge could boost these Chinese stocks, Goldman says",
-        "link": "https://www.cnbc.com/2026/03/08/oil-price-surge-could-boost-these-chinese-stocks-goldman-says-.html",
-        "published": "Sun, 08 Mar 2026 12:54:46 GMT",
-        "summary": "Goldman Sachs' Asia Pacific energy analysts predict two of China's three oil giants could benefit if Brent prices climb amid sustained Middle East tensions.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "В Госдуме предложили повысить пенсионный коэффициент врачам и учителям",
+        "link": "https://lenta.ru/news/2026/03/18/v-gosdume-predlozhili-povysit-pensionnyy-koeffitsient-vracham-i-uchitelyam/",
+        "published": "Wed, 18 Mar 2026 02:28:37 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "China says 'thorough preparations' needed as Trump-Xi meeting hangs in the balance amid Iran war",
-        "link": "https://www.cnbc.com/2026/03/08/china-says-thorough-preparations-needed-ahead-of-trump-xi-meeting.html",
-        "published": "Sun, 08 Mar 2026 07:17:53 GMT",
-        "summary": "China's top diplomat Wang Yi signaled preparations are underway for a planned meeting between the presidents of the U.S. and China.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Дмитриев обратился к США с одним призывом",
+        "link": "https://lenta.ru/news/2026/03/18/dmitriev-obratilsya-k-ssha-s-odnim-prizyvom/",
+        "published": "Wed, 18 Mar 2026 00:57:40 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Robinhood's venture fund, which gives investors access to private companies, tanks 11% on first day",
-        "link": "https://www.cnbc.com/2026/03/06/robinhoods-venture-fund-which-gives-investors-access-to-private-companies-tanks-11percent-on-first-day.html",
-        "published": "Fri, 06 Mar 2026 23:41:32 GMT",
-        "summary": "Robinhood's Venture Fund I plunged 11% in its debut on the New York Stock Exchange on Friday, casting doubt on investors' appetite for riskier investment.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Скачок курса доллара объяснили",
+        "link": "https://lenta.ru/news/2026/03/18/skachok/",
+        "published": "Wed, 18 Mar 2026 00:17:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Fed Governor Miran says job losses in February add to the case for more interest rate cuts",
-        "link": "https://www.cnbc.com/2026/03/06/fed-governor-miran-says-job-losses-in-february-add-to-the-case-for-more-interest-rate-cuts.html",
-        "published": "Fri, 06 Mar 2026 18:14:50 GMT",
-        "summary": "Miran said in a CNBC interview that the Fed should be focusing more on supporting the labor market than worrying about inflation.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Раскрыта цена самой дешевой квартиры у метро в Петербурге",
+        "link": "https://lenta.ru/news/2026/03/17/raskryta-tsena-samoy-deshevoy-kvartiry-u-metro-v-peterburge/",
+        "published": "Tue, 17 Mar 2026 21:58:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "U.S.-Iran war exposes big market concentration risk. It isn't in S&P 500 stocks",
-        "link": "https://www.cnbc.com/2026/03/06/iran-war-oil-energy-emerging-markets-stocks-south-korea.html",
-        "published": "Fri, 06 Mar 2026 17:52:33 GMT",
-        "summary": "Oil prices soar in the U.S.-Iran war, leading to volatility in emerging markets, and showing how concentrated EM funds are in Asian economies.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Крупнейшие энергетические компании Китая возобновят закупки российской нефти",
+        "link": "https://lenta.ru/news/2026/03/17/krupneyshie-energeticheskie-kompanii-kitaya-vozobnovyat-zakupki-rossiyskoy-nefti/",
+        "published": "Tue, 17 Mar 2026 21:56:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves midday: Marvell Technology, BlackRock, United Airlines, CF Industries & more",
-        "link": "https://www.cnbc.com/2026/03/06/stocks-making-the-biggest-moves-midday-mrvl-blk-ual-cf.html",
-        "published": "Fri, 06 Mar 2026 17:30:04 GMT",
-        "summary": "These are the stocks posting the largest moves in midday trading.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Многоэтажный дом в российском городе утонул в фекалиях",
+        "link": "https://lenta.ru/news/2026/03/17/mnogoetazhnyy-dom-v-rossiyskom-gorode-utonul-v-fekaliyah/",
+        "published": "Tue, 17 Mar 2026 21:48:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves premarket: Oil stocks, Gap, Marvell Technology, Samsara and more",
-        "link": "https://www.cnbc.com/2026/03/06/stocks-making-the-biggest-moves-premarket-oil-stocks-gap-mrvl-iot.html",
-        "published": "Fri, 06 Mar 2026 12:46:34 GMT",
-        "summary": "These are the stocks posting the largest moves in premarket trading.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "В Госдуме объяснили необходимость видеофиксации всех сделок с жильем",
+        "link": "https://lenta.ru/news/2026/03/17/v-gosdume-ob-yasnili-neobhodimost-videofiksatsii-vseh-sdelok-s-zhiliem/",
+        "published": "Tue, 17 Mar 2026 21:25:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Stocks making the biggest moves after hours: Costco, Marvell Technology, Gap & more",
-        "link": "https://www.cnbc.com/2026/03/05/stocks-making-the-biggest-moves-after-hours-cost-mrvl-gap.html",
-        "published": "Thu, 05 Mar 2026 23:29:12 GMT",
-        "summary": "These are the stocks posting the largest moves in extended trading.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Нефтегазовым доходам России предсказали двукратное падение",
+        "link": "https://lenta.ru/news/2026/03/17/upadet/",
+        "published": "Tue, 17 Mar 2026 21:02:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Mortgages in 47 seconds: Better’s new ChatGPT app targets lenders Rocket and UWM",
-        "link": "https://www.cnbc.com/2026/03/05/mortgages-in-47-seconds-betters-new-chatgpt-app-targets-lenders-rocket-and-uwm.html",
-        "published": "Thu, 05 Mar 2026 20:42:54 GMT",
-        "summary": "Creating a mortgage has been one of the most time-consuming corners of American finance, with lenders relying on dozens of steps that can take weeks.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "В российском регионе пятимесячное отсутствие воды в доме связали с полтергейстом",
+        "link": "https://lenta.ru/news/2026/03/17/v-rossiyskom-regione-pyatimesyachnoe-otsutstvie-vody-v-dome-svyazali-s-poltergeystom/",
+        "published": "Tue, 17 Mar 2026 20:59:16 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Oaktree's Howard Marks says there's no systemic problem with private credit",
-        "link": "https://www.cnbc.com/2026/03/05/oaktrees-howard-marks-says-theres-no-systemic-problem-with-private-credit.html",
-        "published": "Thu, 05 Mar 2026 18:14:21 GMT",
-        "summary": "Marks said any risk stems from the pace of expansion in direct lending, which has ballooned to a market now exceeding $1 trillion since inception around 2011.",
-        "source": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
-        "fetched_at": "2026-03-14T00:32:59.935260"
+        "title": "Деловая активность в России перешла к спаду впервые с 2022 года",
+        "link": "https://lenta.ru/news/2026/03/17/spad/",
+        "published": "Tue, 17 Mar 2026 20:38:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Wall Street Banks Prepare to Sell Billions of Dollars of X Loans",
-        "link": "https://www.wsj.com/articles/wall-street-banks-prepare-to-sell-billions-of-dollars-of-x-loans-c609beb1?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 15:37:00 -0500",
-        "summary": "Banks are hoping to sell the X debt at around 90 to 95 cents on the dollar.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Россия столкнулась с угрозой дефицита запчастей для самолетов",
+        "link": "https://lenta.ru/news/2026/03/17/deficit/",
+        "published": "Tue, 17 Mar 2026 20:09:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Canada to Provide $720 Million to Canada Post to Avoid Insolvency at Mail Service",
-        "link": "https://www.wsj.com/articles/canada-to-provide-720-million-to-canada-post-to-avoid-insolvency-at-mail-service-fc09a6b9?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 15:13:00 -0500",
-        "summary": "The Canadian government said it would provide extraordinary financing to Canada Post to avoid insolvency at the state-owned mail service.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Центробанк сообщил о росте реального курса рубля",
+        "link": "https://lenta.ru/news/2026/03/17/podros/",
+        "published": "Tue, 17 Mar 2026 19:42:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Amazon Willing to Discuss Quebec Shutdown With Canadian Officials",
-        "link": "https://www.wsj.com/articles/amazon-willing-to-discuss-quebec-shutdown-with-canadian-officials-610e5f59?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 14:15:00 -0500",
-        "summary": "Amazon.com said it is open to talks with officials from the Canadian and Quebec governments about the decision to shut down operations in the country’s French-speaking province, which would lead to 1,700 people losing their jobs.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Вероятность выселения Распутиной из роскошного дома оценили",
+        "link": "https://lenta.ru/news/2026/03/17/veroyatnost-vyseleniya-rasputinoy-iz-roskoshnogo-doma-otsenili/",
+        "published": "Tue, 17 Mar 2026 19:28:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Target Drops DEI Goals and Ends Program to Boost Black Suppliers",
-        "link": "https://www.wsj.com/articles/target-drops-dei-goals-and-ends-program-to-boost-black-suppliers-77cb4c75?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 13:51:00 -0500",
-        "summary": "Once a stalwart supporter of Black and LGBTQ rights, the retailer joined corporate America’s retreat from DEI initiatives.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Курсы доллара и евро выросли",
+        "link": "https://lenta.ru/news/2026/03/17/kursy-dollara-i-evro-vyrosli/",
+        "published": "Tue, 17 Mar 2026 18:36:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Energy & Utilities Roundup: Market Talk",
-        "link": "https://www.wsj.com/articles/energy-utilities-roundup-market-talk-08708375?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 12:29:00 -0500",
-        "summary": "Find insight on Cnooc, YTL Power International, Ampol, and more in the latest Market Talks covering energy and utilities.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "В России заметили риски резкого роста дефицита бюджета",
+        "link": "https://lenta.ru/news/2026/03/17/mnogovato/",
+        "published": "Tue, 17 Mar 2026 18:18:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Basic Materials Roundup: Market Talk",
-        "link": "https://www.wsj.com/articles/basic-materials-roundup-market-talk-f817645e?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 12:28:00 -0500",
-        "summary": "Find insight on CSX, Givaudan, Rio Tinto and more in the latest Market Talks covering basic materials.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Названо условие подорожания доллара до 100 рублей",
+        "link": "https://lenta.ru/news/2026/03/17/nazvano-uslovie-podorozhaniya-dollara-do-100-rubley/",
+        "published": "Tue, 17 Mar 2026 18:11:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Auto & Transport Roundup: Market Talk",
-        "link": "https://www.wsj.com/articles/auto-transport-roundup-market-talk-f1469058?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 12:28:00 -0500",
-        "summary": "Read about CSX, Magna International, Alaska Air and more in the latest Market Talks covering the auto and transport sector.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Россиянам назвали причины срочной продажи квартиры",
+        "link": "https://lenta.ru/news/2026/03/17/kv-srochno/",
+        "published": "Tue, 17 Mar 2026 18:04:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Financial Services Roundup: Market Talk",
-        "link": "https://www.wsj.com/articles/financial-services-roundup-market-talk-fb36548b?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 12:25:00 -0500",
-        "summary": "Find insight on Banca Monte dei Paschi di Siena’s bid for Mediobanca, Travelers and more in the latest Market Talks covering financial services.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Глыбы льда рухнули на двух младенцев в России",
+        "link": "https://lenta.ru/news/2026/03/17/glyby-lda-ruhnuli-na-dvuh-mladentsev-v-rossii/",
+        "published": "Tue, 17 Mar 2026 17:56:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Novo Nordisk Shares Surge on New Obesity Drug Results",
-        "link": "https://www.wsj.com/articles/novo-nordisk-shares-surge-on-new-obesity-drug-results-416670ee?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 11:52:00 -0500",
-        "summary": "Novo Nordisk shares rose sharply after the Danish pharmaceutical giant said an experimental weight-loss shot helped patients lose 22% of their body weight in a clinical trial.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Профицит внешней торговли России резко упал",
+        "link": "https://lenta.ru/news/2026/03/17/profitsit-vneshney-torgovli-rossii-rezko-upal/",
+        "published": "Tue, 17 Mar 2026 17:48:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "EU Conditionally Approves International Paper's $7.16 Billion DS Smith Buy",
-        "link": "https://www.wsj.com/articles/eu-conditionally-approves-international-papers-7-16-billion-ds-smith-buy-c1ce87f1?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 10:55:00 -0500",
-        "summary": "The European Commission said that the parties’ offer to sell five of International Paper’s plants in Europe fully addresses its competition concerns over the deal.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Конфликт в Иране приведет к глобальному голоду",
+        "link": "https://lenta.ru/news/2026/03/17/konflikt-v-irane-privedet-k-globalnomu-golodu/",
+        "published": "Tue, 17 Mar 2026 17:39:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Google to Put Warnings on U.K. Businesses Using Fake Online Reviews",
-        "link": "https://www.wsj.com/articles/google-to-put-warnings-on-u-k-businesses-using-fake-online-reviews-eb75c038?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 10:40:00 -0500",
-        "summary": "The search giant has offered to start punishing British businesses that boost their star ratings with fake reviews and the people that post them, ending the U.K. competition watchdog’s investigation into online reviews.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Машу Распутину захотели оставить без дома",
+        "link": "https://lenta.ru/news/2026/03/17/rasputina/",
+        "published": "Tue, 17 Mar 2026 17:36:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Ericsson Shares Slump as Earnings Hit by Weakness Outside of Core Networks Business",
-        "link": "https://www.wsj.com/articles/ericsson-sees-further-signs-of-market-stabilization-as-north-america-sales-rise-19ac5238?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 09:07:00 -0500",
-        "summary": "The company’s shares fell to the bottom of the Stoxx Europe 600 index as higher operating costs and weakness in some of its business units dented earnings.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Курс доллара превысил 83 рубля",
+        "link": "https://lenta.ru/news/2026/03/17/rubl-zhivi/",
+        "published": "Tue, 17 Mar 2026 17:35:12 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Verizon Results Boosted by Higher Prices, Gain in Wireless Customers",
-        "link": "https://www.wsj.com/articles/verizon-results-boosted-by-higher-prices-gain-in-wireless-customers-5f0ff6e9?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 09:05:00 -0500",
-        "summary": "The New York telecommunications giant’s quarterly earnings beat Wall Street forecasts as higher prices helped to boost revenue.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "В Японии назвали условие возобновления импорта российской нефти",
+        "link": "https://lenta.ru/news/2026/03/17/v-yaponii-nazvali-uslovie-vozobnovleniya-importa-rossiyskoy-nefti/",
+        "published": "Tue, 17 Mar 2026 17:06:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "If You Need to Escape a Wildfire in an EV, Here Is What to Know",
-        "link": "https://www.wsj.com/articles/if-you-need-to-escape-a-wildfire-in-an-ev-here-is-what-to-know-0fa41f51?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 08:00:00 -0500",
-        "summary": "Driving an electric car in a wildfire emergency has its own unique challenges and benefits.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "В Чистой Слободе пожаловались на грязный воздух",
+        "link": "https://lenta.ru/news/2026/03/17/v-chistoy-slobode-pozhalovalis-na-gryaznyy-vozduh/",
+        "published": "Tue, 17 Mar 2026 16:55:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "CaixaBank's CFO Sees Case for Dealmaking Among Europe's Banks",
-        "link": "https://www.wsj.com/articles/caixabanks-cfo-sees-case-for-dealmaking-among-europes-banks-0b47910b?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 06:11:00 -0500",
-        "summary": "Growth through acquisitions isn’t part of CaixaBank’s latest three-year plan, it should be for other banks in Europe, Caixa’s finance chief Javier Pano said in an interview.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Российскому ЦБ упростят выход из процедуры по предотвращению банкротства банков",
+        "link": "https://lenta.ru/news/2026/03/17/gosduma-podderzhala-uproschenie-vyhoda-tsb-iz-protsedury-bankrotstva-bankov/",
+        "published": "Tue, 17 Mar 2026 16:42:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Tesla to Recall Cars in China on Safety Concerns",
-        "link": "https://www.wsj.com/articles/tesla-to-recall-1-2-million-cars-in-china-on-safety-concerns-06ff757a?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 05:56:00 -0500",
-        "summary": "Tesla China plans to fix 1.2 million China-made and imported vehicles with software issues.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "В российском регионе решили заплатить лишившимся скота фермерам",
+        "link": "https://lenta.ru/news/2026/03/17/poluchite/",
+        "published": "Tue, 17 Mar 2026 16:38:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Korea Zinc Shares Rally After Adopting New Investor Protection Rules",
-        "link": "https://www.wsj.com/articles/korea-zinc-shares-rally-after-rules-for-better-minority-investors-protection-8874c125?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 04:56:00 -0500",
-        "summary": "Korea Zinc’s shares rose sharply a day after the world’s leading zinc smelter decided to adopt new rules that management said would bolster minority shareholders’ rights.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Ощутимое землетрясение в российском регионе попало на видео",
+        "link": "https://lenta.ru/news/2026/03/17/oschutimoe-zemletryasenie-v-rossiyskom-regione-popalo-na-video/",
+        "published": "Tue, 17 Mar 2026 16:38:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Burberry Sees Positive Signs as Turnaround Plan Continues",
-        "link": "https://www.wsj.com/articles/burberry-sees-positive-signs-as-turnaround-plan-continues-d3713aff?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 04:31:00 -0500",
-        "summary": "The company upgraded its earnings outlook as sales returned to growth in the Americas, saying efforts to revamp its brand showed positive signs over the key holiday period.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Россиян предупредили об опасном половодье",
+        "link": "https://lenta.ru/news/2026/03/17/rossiyan-predupredili-ob-opasnom-polovodie/",
+        "published": "Tue, 17 Mar 2026 16:29:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "Rolls-Royce Strikes Contract to Supply Nuclear Reactors for U.K. Submarines",
-        "link": "https://www.wsj.com/articles/rolls-royce-gets-9-37-bln-contract-to-supply-nuclear-reactors-for-u-k-submarines-4ad2961c?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 04:27:00 -0500",
-        "summary": "Rolls-Royce will manufacture nuclear reactors to power new U.K. submarines under a contract valued approximately at $11.1 billion.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Назван срок полного исчезновения сугробов в Москве",
+        "link": "https://lenta.ru/news/2026/03/17/sneg-msk/",
+        "published": "Tue, 17 Mar 2026 16:22:59 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     },
     {
-        "title": "China's WeRide Wants to Build Global Robotaxi Empire",
-        "link": "https://www.wsj.com/articles/chinas-weride-wants-to-build-global-robotaxi-empire-6804cc80?mod=pls_whats_news_us_business_f",
-        "published": "Fri, 24 Jan 2025 03:30:00 -0500",
-        "summary": "The Chinese autonomous-driving company is aiming to make more inroads overseas this year, betting that robotaxis and related services will be in high demand in coming years.",
-        "source": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
-        "fetched_at": "2026-03-14T00:33:00.486758"
+        "title": "Россияне сняли со счетов максимальную сумму",
+        "link": "https://lenta.ru/news/2026/03/17/rossiyane-snyali-so-schetov-maksimalnuyu-summu/",
+        "published": "Tue, 17 Mar 2026 16:15:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Продажи слабоалкогольных напитков в России рухнули",
+        "link": "https://lenta.ru/news/2026/03/17/upalo/",
+        "published": "Tue, 17 Mar 2026 16:07:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Акции Сбера ускорили рост после слов Грефа о прибыли и дивидендах",
+        "link": "https://lenta.ru/news/2026/03/17/aktsii-sbera-uskorili-rost-posle-slov-grefa-o-pribyli-i-dividendah/",
+        "published": "Tue, 17 Mar 2026 16:00:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Части россиян пообещали аномальное тепло",
+        "link": "https://lenta.ru/news/2026/03/17/chasti-rossiyan-poobeschali-anomalnoe-teplo/",
+        "published": "Tue, 17 Mar 2026 15:48:40 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Из Банка Англии уволят почти 500 человек",
+        "link": "https://lenta.ru/news/2026/03/17/iz-banka-anglii-uvolyat-pochti-500-chelovek/",
+        "published": "Tue, 17 Mar 2026 15:42:22 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Три вековых рекорда побили в Москве",
+        "link": "https://lenta.ru/news/2026/03/17/tri-vekovyh-rekorda-pobili-v-moskve/",
+        "published": "Tue, 17 Mar 2026 15:35:38 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Южная Корея задумалась о возобновлении покупки российской нефти",
+        "link": "https://lenta.ru/news/2026/03/17/yuzhnaya-koreya-zadumalas-o-vozobnovlenii-pokupki-rossiyskoy-nefti/",
+        "published": "Tue, 17 Mar 2026 15:27:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Госкомпании страны БРИКС снова решили закупать российскую нефть",
+        "link": "https://lenta.ru/news/2026/03/17/goskompanii-strany-briks-snova-reshili-zakupat-rossiyskuyu-neft/",
+        "published": "Tue, 17 Mar 2026 15:19:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Ощутимое землетрясение произошло в российском регионе",
+        "link": "https://lenta.ru/news/2026/03/17/oschutimoe-zemletryasenie-proizoshlo-v-rossiyskom-regione/",
+        "published": "Tue, 17 Mar 2026 15:18:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В Евросоюзе исключили сделки по энергетике с Россией",
+        "link": "https://lenta.ru/news/2026/03/17/no/",
+        "published": "Tue, 17 Mar 2026 15:07:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Страхование перевозок через Ормузский пролив подорожало в 20 раз",
+        "link": "https://lenta.ru/news/2026/03/17/strahovanie-perevozok-cherez-ormuzskiy-proliv-podorozhalo-v-20-raz/",
+        "published": "Tue, 17 Mar 2026 15:04:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиян призвали готовиться к аномальному нашествию паразитов",
+        "link": "https://lenta.ru/news/2026/03/17/rossiyan-prizvali-gotovitsya-k-anomalnomu-nashestviyu-parazitov/",
+        "published": "Tue, 17 Mar 2026 15:01:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Продавец попугаев не смогла доказать связь обидных комментариев и падения ее доходов",
+        "link": "https://lenta.ru/news/2026/03/17/prodavets-popugaev-ne-smogla-dokazat-padenie-dohodov-iz-za-obidnyh-kommentariev/",
+        "published": "Tue, 17 Mar 2026 15:00:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Москвичей предупредили о сибирских ночах",
+        "link": "https://lenta.ru/news/2026/03/17/moskvicham-rasskazali-o-pogode-do-kontsa-nedeli/",
+        "published": "Tue, 17 Mar 2026 14:53:25 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Российская сеть магазинов одежды решила обанкротиться",
+        "link": "https://lenta.ru/news/2026/03/17/modis/",
+        "published": "Tue, 17 Mar 2026 14:43:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Войну в Иране назвали угрозой еще для одной ключевой отрасли",
+        "link": "https://lenta.ru/news/2026/03/17/voynu-v-irane-nazvali-ugrozoy-esche-dlya-odnoy-klyuchevoy-otrasli/",
+        "published": "Tue, 17 Mar 2026 14:41:02 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Предсказаны два варианта решения Банка России по ключевой ставке",
+        "link": "https://lenta.ru/news/2026/03/17/predskazany-dva-varianta-resheniya-banka-rossii-po-klyuchevoy-stavke/",
+        "published": "Tue, 17 Mar 2026 14:38:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В России взлетели цены на иранский фарфор",
+        "link": "https://lenta.ru/news/2026/03/17/v-rossii-vzleteli-tseny-na-iranskiy-farfor/",
+        "published": "Tue, 17 Mar 2026 14:34:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Москвичей предупредили о падении давления",
+        "link": "https://lenta.ru/news/2026/03/17/moskvichey-predupredili-o-padenii-davleniya/",
+        "published": "Tue, 17 Mar 2026 14:20:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиян призвали воздержаться от частых больничных",
+        "link": "https://lenta.ru/news/2026/03/17/rossiyan-prizvali-vozderzhatsya-ot-chastyh-bolnichnyh/",
+        "published": "Tue, 17 Mar 2026 14:10:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Дерипаска описал проблемы российской экономики из-за конфликта в Иране",
+        "link": "https://lenta.ru/news/2026/03/17/proch-illusii/",
+        "published": "Tue, 17 Mar 2026 14:09:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Британцам предрекли ограничения на розничную продажу топлива",
+        "link": "https://lenta.ru/news/2026/03/17/britantsam-predrekli-ogranicheniya-na-roznichnuyu-prodazhu-topliva/",
+        "published": "Tue, 17 Mar 2026 14:08:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Нефтяной порт в ОАЭ приостановил работу после атаки",
+        "link": "https://lenta.ru/news/2026/03/17/neftyanoy-port-v-oae-priostanovil-rabotu-posle-ataki/",
+        "published": "Tue, 17 Mar 2026 14:08:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Международная организация предсказала уровень инфляции в России",
+        "link": "https://lenta.ru/news/2026/03/17/mezhdunarodnaya-organizatsiya-predskazala-uroven-inflyatsii-v-rossii/",
+        "published": "Tue, 17 Mar 2026 13:45:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Заработок Ирана на подорожавшей нефти оценили",
+        "link": "https://lenta.ru/news/2026/03/17/zarabotok-irana-na-podorozhavshey-nefti-otsenili/",
+        "published": "Tue, 17 Mar 2026 13:32:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В Москве пропали дешевые квартиры",
+        "link": "https://lenta.ru/news/2026/03/17/v-moskve-propali-deshevye-kvartiry/",
+        "published": "Tue, 17 Mar 2026 13:31:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиянам назвали главные причины лишения премии на работе",
+        "link": "https://lenta.ru/news/2026/03/17/rossiyanam-nazvali-glavnye-prichiny-lisheniya-premii-na-rabote/",
+        "published": "Tue, 17 Mar 2026 13:31:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Ключевой ставке Банка России предсказали еще одно понижение",
+        "link": "https://lenta.ru/news/2026/03/17/klyuchevoy-stavke-banka-rossii-predskazali-esche-odno-ponizhenie/",
+        "published": "Tue, 17 Mar 2026 12:59:29 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Москвичам рассказали о погоде на выходных",
+        "link": "https://lenta.ru/news/2026/03/17/msk-pogoda/",
+        "published": "Tue, 17 Mar 2026 12:55:17 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Азиатская страна перейдет на четырехдневку ради экономии топлива",
+        "link": "https://lenta.ru/news/2026/03/17/aziatskoe-gosudarstvo-pereydet-na-chetyrehdnevku-radi-ekonomii-topliva/",
+        "published": "Tue, 17 Mar 2026 12:40:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "МВФ поставил Украину перед крайне трудным выбором",
+        "link": "https://lenta.ru/news/2026/03/17/mvf-postavil-ukrainu-pered-krayne-trudnym-vyborom/",
+        "published": "Tue, 17 Mar 2026 12:18:01 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Замедлению российской экономики нашли объяснение",
+        "link": "https://lenta.ru/news/2026/03/17/zamedleniyu-rossiyskoy-ekonomiki-nashli-ob-yasnenie/",
+        "published": "Tue, 17 Mar 2026 12:12:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Курс доллара к рублю вырос до максимума за полгода",
+        "link": "https://lenta.ru/news/2026/03/17/kurs-dollara-k-rublyu-vyros-do-maksimuma-za-polgoda/",
+        "published": "Tue, 17 Mar 2026 12:03:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Еще в одной азиатской стране заявили о намерении купить нефть из России",
+        "link": "https://lenta.ru/news/2026/03/17/esche-v-odnoy-aziatskoy-strane-zayavili-o-namerenii-kupit-neft-iz-rossii/",
+        "published": "Tue, 17 Mar 2026 11:57:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Московское метро начали готовить к весне",
+        "link": "https://lenta.ru/news/2026/03/17/etro-dveri/",
+        "published": "Tue, 17 Mar 2026 11:54:48 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Мировой экономике спрогнозировали проблемы из-за войны в Иране",
+        "link": "https://lenta.ru/news/2026/03/17/mirovoy-ekonomike-sprognozirovali-problemy-iz-za-voyny-v-irane/",
+        "published": "Tue, 17 Mar 2026 11:50:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Рост цен на газ в Европе назвали разрушительным",
+        "link": "https://lenta.ru/news/2026/03/17/rost-tsen-na-gaz-v-evrope-nazvali-razrushitelnym/",
+        "published": "Tue, 17 Mar 2026 11:40:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Риск обвала российского рынка труда оценили",
+        "link": "https://lenta.ru/news/2026/03/17/risk-obvala-rossiyskogo-rynka-truda-otsenili/",
+        "published": "Tue, 17 Mar 2026 11:40:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.220578",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Названы регионы России с самым большим числом клещей",
+        "link": "https://lenta.ru/news/2026/03/17/regiony-kleschi/",
+        "published": "Tue, 17 Mar 2026 11:36:27 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиянам рассказали про зарплатные махинации работодателей",
+        "link": "https://lenta.ru/news/2026/03/17/rossiyanam-rasskazali-pro-zarplatnye-mahinatsii-rabotodateley/",
+        "published": "Tue, 17 Mar 2026 11:12:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В Турции приостановили движение судов через Босфорский пролив",
+        "link": "https://lenta.ru/news/2026/03/17/v-turtsii-priostanovili-dvizhenie-sudov-cherez-bosforskiy-proliv/",
+        "published": "Tue, 17 Mar 2026 11:05:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Экономист назвал максимальный курс доллара в марте",
+        "link": "https://lenta.ru/news/2026/03/17/ekonomist-nazval-maksimalnyy-kurs-dollara-v-marte/",
+        "published": "Tue, 17 Mar 2026 11:03:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Иран призвал США навсегда забыть про безопасный проход судов в Ормузском проливе",
+        "link": "https://lenta.ru/news/2026/03/17/iran-prizval-ssha-navsegda-zabyt-pro-bezopasnyy-prohod-sudov-v-ormuzskom-prolive/",
+        "published": "Tue, 17 Mar 2026 10:41:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Стало известно о серьезной угрозе для американской экономики",
+        "link": "https://lenta.ru/news/2026/03/17/stalo-izvestno-o-serieznoy-ugroze-dlya-amerikanskoy-ekonomiki/",
+        "published": "Tue, 17 Mar 2026 10:36:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Оставшуюся у Глуховского в Москве квартиру арестовали",
+        "link": "https://lenta.ru/news/2026/03/17/glukhovskiy-kv/",
+        "published": "Tue, 17 Mar 2026 10:17:03 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Миру спрогнозировали топливный шок из-за войны в Иране",
+        "link": "https://lenta.ru/news/2026/03/17/miru-sprognozirovali-toplivnyy-shok-iz-za-voyny-v-irane/",
+        "published": "Tue, 17 Mar 2026 10:05:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Влияние поставок из России на спасение мира от продовольственного кризиса оценили",
+        "link": "https://lenta.ru/news/2026/03/17/vliyanie-postavok-iz-rossii-na-spasenie-mira-ot-prodovolstvennogo-krizisa-otsenili/",
+        "published": "Tue, 17 Mar 2026 09:51:19 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В российском городе глыба льда придавила женщину на остановке",
+        "link": "https://lenta.ru/news/2026/03/17/petropavolov-naled/",
+        "published": "Tue, 17 Mar 2026 09:21:53 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В России выросли продажи водки",
+        "link": "https://lenta.ru/news/2026/03/17/v-rossii-vyrosli-prodazhi-vodki/",
+        "published": "Tue, 17 Mar 2026 09:04:48 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Российские аптеки столкнулись с нехваткой жизненно необходимого препарата",
+        "link": "https://lenta.ru/news/2026/03/17/rossiyskie-apteki-stolknulis-s-nehvatkoy-zhiznenno-neobhodimogo-preparata/",
+        "published": "Tue, 17 Mar 2026 08:42:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Реальные ставки по кредитам в России оказались вдвое выше ключевой",
+        "link": "https://lenta.ru/news/2026/03/17/realnye-stavki-po-kreditam-v-rossii-okazalis-vdvoe-vyshe-klyuchevoy/",
+        "published": "Tue, 17 Mar 2026 08:19:22 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россия нарастила поставки пшеницы в одну страну до максимума",
+        "link": "https://lenta.ru/news/2026/03/17/rossiya-narastila-postavki-pshenitsy-v-odnu-stranu-do-maksimuma/",
+        "published": "Tue, 17 Mar 2026 07:42:42 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиянам рассказали о весенних посадках",
+        "link": "https://lenta.ru/news/2026/03/17/rossiyanam-rasskazali-o-vesennih-posadkah/",
+        "published": "Tue, 17 Mar 2026 06:31:55 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Предсказана судьба нефти из России после конфликта в Иране",
+        "link": "https://lenta.ru/news/2026/03/17/predskazana-sudba-nefti-iz-rossii-posle-konflikta-v-irane/",
+        "published": "Tue, 17 Mar 2026 06:01:29 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Словакия прекратит поставки электроэнергии на Украину",
+        "link": "https://lenta.ru/news/2026/03/16/slovakiya-prekratit-postavki-elektrichestva-na-ukrainu/",
+        "published": "Mon, 16 Mar 2026 23:06:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В одной стране призвали экономить топливо",
+        "link": "https://lenta.ru/news/2026/03/16/v-odnoy-strane-prizvali-ekonomit-toplivo/",
+        "published": "Mon, 16 Mar 2026 20:57:48 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиянам раскрыли способ ощутимо сэкономить на ЖКУ летом",
+        "link": "https://lenta.ru/news/2026/03/16/rossiyanam-raskryli-sposob-oschutimo-sekonomit-na-zhku-letom/",
+        "published": "Mon, 16 Mar 2026 20:47:03 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Зумеры начали спасать торговые центры",
+        "link": "https://lenta.ru/news/2026/03/16/zumery-nachali-spasat-torgovye-tsentry/",
+        "published": "Mon, 16 Mar 2026 20:31:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Зумеры нашли замену ипотеке в России",
+        "link": "https://lenta.ru/news/2026/03/16/zumery-nashli-zamenu-ipoteke-v-rossii/",
+        "published": "Mon, 16 Mar 2026 20:22:27 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Москвичей предупредили о возвращении заморозков",
+        "link": "https://lenta.ru/news/2026/03/16/moskvichey-predupredili-o-vozvraschenii-zamorozkov/",
+        "published": "Mon, 16 Mar 2026 20:21:34 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Центробанки призвали не спешить с повышением ставок",
+        "link": "https://lenta.ru/news/2026/03/16/tsentrobanki-prizvali-ne-speshit-s-povysheniem-stavok/",
+        "published": "Mon, 16 Mar 2026 20:08:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиян призвали собирать дождевую воду ради экономии",
+        "link": "https://lenta.ru/news/2026/03/16/rossiyan-prizvali-sobirat-dozhdevuyu-vodu-radi-ekonomii/",
+        "published": "Mon, 16 Mar 2026 19:57:03 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиян вынудили три недели ходить по раскаленному из-за аварии полу",
+        "link": "https://lenta.ru/news/2026/03/16/komsomolsk-pol/",
+        "published": "Mon, 16 Mar 2026 19:39:25 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Погрязших в долгах россиян уличили в инфантильности",
+        "link": "https://lenta.ru/news/2026/03/16/pogryazshih-v-dolgah-rossiyan-ulichili-v-infantilnosti/",
+        "published": "Mon, 16 Mar 2026 19:35:51 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиян предупредили о риске сесть в тюрьму за рыбалку",
+        "link": "https://lenta.ru/news/2026/03/16/rossiyan-predupredili-o-riske-sest-v-tyurmu-za-rybalku/",
+        "published": "Mon, 16 Mar 2026 19:29:20 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "«Ростех» сможет самостоятельно выбирать данные из отчета для публикации",
+        "link": "https://lenta.ru/news/2026/03/16/rosteh-smozhet-samostoyatelno-vybirat-dannye-iz-otcheta-dlya-publikatsii/",
+        "published": "Mon, 16 Mar 2026 19:22:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В США обвинили Иран в завышенных ценах на нефть",
+        "link": "https://lenta.ru/news/2026/03/16/v-ssha-obvinili-iran-v-zavyshennyh-tsenah-ne-neft/",
+        "published": "Mon, 16 Mar 2026 19:22:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Вероятность конфискации жилья за фиктивную прописку мигрантов оценили",
+        "link": "https://lenta.ru/news/2026/03/16/propiska-konfiscaciya/",
+        "published": "Mon, 16 Mar 2026 19:20:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В Петербурге собрались полностью запретить электросамокаты",
+        "link": "https://lenta.ru/news/2026/03/16/v-peterburge-sobralis-polnostyu-zapretit-elektrosamokaty/",
+        "published": "Mon, 16 Mar 2026 18:56:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Вероятность конфискации США нефти Ирана с острова Харк описали словами «ничто не мешает»",
+        "link": "https://lenta.ru/news/2026/03/16/veroyatnost-konfiskatsii-ssha-nefti-irana-s-ostrova-hark-opisali-slovami-nichto-ne-meshaet/",
+        "published": "Mon, 16 Mar 2026 18:44:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Спрос на столичные новостройки упал до уровня времен пандемии",
+        "link": "https://lenta.ru/news/2026/03/16/spros-lockdown/",
+        "published": "Mon, 16 Mar 2026 18:39:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Банк России повысил официальный курс доллара",
+        "link": "https://lenta.ru/news/2026/03/16/bank-rossii-povysil-ofitsialnyy-kurs-dollara/",
+        "published": "Mon, 16 Mar 2026 18:35:25 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В российском городе выпало 162 процента нормы осадков",
+        "link": "https://lenta.ru/news/2026/03/16/v-rossiyskom-gorode-vypalo-162-normy-osadkov/",
+        "published": "Mon, 16 Mar 2026 18:28:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Денежные переводы из России в Грузию резко выросли",
+        "link": "https://lenta.ru/news/2026/03/16/denezhnye/",
+        "published": "Mon, 16 Mar 2026 18:09:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Раскрыта минимальная зарплата для ипотеки на однушку в Москве",
+        "link": "https://lenta.ru/news/2026/03/16/raskryta-minimalnaya-zarplata-dlya-ipoteki-na-odnushku-v-moskve/",
+        "published": "Mon, 16 Mar 2026 17:35:23 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Москвичам пообещали аномально теплый март",
+        "link": "https://lenta.ru/news/2026/03/16/msk-teploo/",
+        "published": "Mon, 16 Mar 2026 17:35:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Один из ведущих экспортеров нефти в мире сократил добычу вдвое",
+        "link": "https://lenta.ru/news/2026/03/16/odin-iz-veduschih-eksporterov-nefti-v-mire-sokratil-dobychu-vdvoe/",
+        "published": "Mon, 16 Mar 2026 17:24:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Покупающие российскую нефть страны решили построить новый трубопровод",
+        "link": "https://lenta.ru/news/2026/03/16/pokupayuschie-rossiyskuyu-neft-strany-reshili-postroit-novyy-truboprovod/",
+        "published": "Mon, 16 Mar 2026 16:54:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Москве пригрозили четвертым тепловым рекордом",
+        "link": "https://lenta.ru/news/2026/03/16/msk-record/",
+        "published": "Mon, 16 Mar 2026 16:53:09 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Иран выдвинул Индии жесткое условие прохода судов через Ормузский пролив",
+        "link": "https://lenta.ru/news/2026/03/16/iran-vydvinul-indii-zhestkoe-uslovie-prohoda-sudov-cherez-ormuzskiy-proliv/",
+        "published": "Mon, 16 Mar 2026 16:53:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Дерипаска призвал показать план восстановления темпов роста российской экономики",
+        "link": "https://lenta.ru/news/2026/03/16/deripaska-prizval-pokazat-plan-vosstanovleniya-tempov-rosta-ekonomiki-v-rossii/",
+        "published": "Mon, 16 Mar 2026 16:36:26 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В Индии из-за топливного кризиса остановились крематории",
+        "link": "https://lenta.ru/news/2026/03/16/v-indii-iz-za-toplivnogo-krizisa-ostanovilis-krematorii/",
+        "published": "Mon, 16 Mar 2026 16:17:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Постсоветская страна завалила Россию популярными овощами",
+        "link": "https://lenta.ru/news/2026/03/16/postsovetskaya-strana-zavalila-rossiyu-populyarnymi-ovoschami/",
+        "published": "Mon, 16 Mar 2026 16:12:36 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Назван предел цен на нефть на фоне конфликта в Иране",
+        "link": "https://lenta.ru/news/2026/03/16/neft/",
+        "published": "Mon, 16 Mar 2026 15:56:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Сроки падения цен на нефть ниже 80 долларов предсказали",
+        "link": "https://lenta.ru/news/2026/03/16/sroki-padeniya-tsen-na-neft-nizhe-80-dollarov-predskazali/",
+        "published": "Mon, 16 Mar 2026 15:50:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Биржевые цены на бензин в России взлетели",
+        "link": "https://lenta.ru/news/2026/03/16/benzin/",
+        "published": "Mon, 16 Mar 2026 15:42:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В российском городе снег оставил без крыши объект культурного наследия",
+        "link": "https://lenta.ru/news/2026/03/16/krysha-ufa/",
+        "published": "Mon, 16 Mar 2026 15:32:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиянам рассказали о зарабатывающих больше айтишников парикмахерах",
+        "link": "https://lenta.ru/news/2026/03/16/rossiyanam-rasskazali-o-zarabatyvayuschih-bolshe-aytishnikov-parikmaherah/",
+        "published": "Mon, 16 Mar 2026 15:31:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Рублю спрогнозировали ослабление к доллару",
+        "link": "https://lenta.ru/news/2026/03/16/rublyu-sprognozirovali-oslablenie-k-dollaru/",
+        "published": "Mon, 16 Mar 2026 15:30:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Хакамада сравнила Москву с Нью-Йорком",
+        "link": "https://lenta.ru/news/2026/03/16/hakamada-sravnila-moskvu-s-nyu-yorkom/",
+        "published": "Mon, 16 Mar 2026 15:25:42 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В Кремле понадеялись на рост доходов бюджета из-за подорожания нефти",
+        "link": "https://lenta.ru/news/2026/03/16/v-kremle-ponadeyalis-na-rost-dohodov-byudzheta-iz-za-podorozhaniya-nefti/",
+        "published": "Mon, 16 Mar 2026 15:22:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Российская нефть в Индии рекордно подорожала",
+        "link": "https://lenta.ru/news/2026/03/16/rossiyskaya-neft-v-indii-rekordno-podorozhala/",
+        "published": "Mon, 16 Mar 2026 15:17:10 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "США извлекли выгоду из войны на Ближнем Востоке",
+        "link": "https://lenta.ru/news/2026/03/16/ssha-izvlekli-vygodu-iz-voyny-na-blizhnem-vostoke/",
+        "published": "Mon, 16 Mar 2026 15:04:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Глыба льда рухнула на пенсионерку и мать с младенцем в российском городе",
+        "link": "https://lenta.ru/news/2026/03/16/glyba-lda-ruhnula-na-pensionerku-i-mat-s-mladentsem-v-rossiyskom-gorode/",
+        "published": "Mon, 16 Mar 2026 15:01:56 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "«Газпром» собрался выпускать стиральные машины на заводе Bosch",
+        "link": "https://lenta.ru/news/2026/03/16/gazprom/",
+        "published": "Mon, 16 Mar 2026 14:56:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Золото подешевело из-за страха перед ростом цен",
+        "link": "https://lenta.ru/news/2026/03/16/zoloto-podeshevelo-iz-za-opaseniy-uskoreniya-inflyatsii/",
+        "published": "Mon, 16 Mar 2026 14:45:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россияне бросились избавляться от взятых в ипотеку квартир",
+        "link": "https://lenta.ru/news/2026/03/16/rossiyane-brosilis-izbavlyatsya-ot-vzyatyh-v-ipoteku-kvartir/",
+        "published": "Mon, 16 Mar 2026 14:39:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Еврокомиссия пафосно отказалась от энергоносителей из России",
+        "link": "https://lenta.ru/news/2026/03/16/evrokomissiya-pafosno-otkazalas-ot-energonositeley-iz-rossii/",
+        "published": "Mon, 16 Mar 2026 14:35:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Азиатский союзник США резко нарастил импорт газа из России",
+        "link": "https://lenta.ru/news/2026/03/16/aziatskiy-soyuznik-ssha-rezko-narastil-import-gaza-iz-rossii/",
+        "published": "Mon, 16 Mar 2026 14:14:56 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Российские грузоперевозчики предупредили о росте тарифов из-за нового закона",
+        "link": "https://lenta.ru/news/2026/03/16/podorozhaet2/",
+        "published": "Mon, 16 Mar 2026 14:09:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Страна БРИКС стала покупать больше российской нефти",
+        "link": "https://lenta.ru/news/2026/03/16/strana-briks-stala-pokupat-bolshe-rossiyskoy-nefti/",
+        "published": "Mon, 16 Mar 2026 13:59:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "На крупнейших месторождениях Ирака приостановили добычу нефти",
+        "link": "https://lenta.ru/news/2026/03/16/na-krupneyshih-mestorozhdeniyah-iraka-priostanovili-dobychu-nefti/",
+        "published": "Mon, 16 Mar 2026 13:59:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Дубай и Абу-Даби оказались под угрозой экологической катастрофы из-за конфликта в Иране",
+        "link": "https://lenta.ru/news/2026/03/16/otdyh/",
+        "published": "Mon, 16 Mar 2026 13:58:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Курс евро резко вырос",
+        "link": "https://lenta.ru/news/2026/03/16/kurs-evro-rezko-vyros/",
+        "published": "Mon, 16 Mar 2026 13:38:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Страна НАТО компенсировала России снижение поставок овощей из Ирана",
+        "link": "https://lenta.ru/news/2026/03/16/strana-nato-kompensirovala-rossii-snizhenie-postavok-ovoschey-iz-irana/",
+        "published": "Mon, 16 Mar 2026 13:10:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В числе причин нападения на Иран назвали конкуренцию на рынке фисташек",
+        "link": "https://lenta.ru/news/2026/03/16/v-chisle-prichin-napadeniya-na-iran-nazvali-konkurentsiyu-na-rynke-fistashek/",
+        "published": "Mon, 16 Mar 2026 13:03:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Падению торговли России и Китая нашли объяснение",
+        "link": "https://lenta.ru/news/2026/03/16/padeniyu-torgovli-rossii-i-kitaya-nashli-ob-yasnenie/",
+        "published": "Mon, 16 Mar 2026 12:57:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиянам пообещали снижение «коммуналки» весной",
+        "link": "https://lenta.ru/news/2026/03/16/kommunalka-plata/",
+        "published": "Mon, 16 Mar 2026 12:43:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Европе спрогнозировали энергетический шок из-за войны в Иране",
+        "link": "https://lenta.ru/news/2026/03/16/evrope-sprognozirovali-energeticheskiy-shok-iz-za-voyny-v-irane/",
+        "published": "Mon, 16 Mar 2026 12:26:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Еврокомиссия потребовала не менять планы по отказу от топлива из России",
+        "link": "https://lenta.ru/news/2026/03/16/kurs-vzyat/",
+        "published": "Mon, 16 Mar 2026 12:21:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "«Яндекс» опроверг данные о планах массовых увольнений",
+        "link": "https://lenta.ru/news/2026/03/16/yandeks-oproverg-dannye-o-planah-massovyh-uvolneniy/",
+        "published": "Mon, 16 Mar 2026 11:56:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "С импорта товаров в Россию захотели собрать сотни миллиардов рублей",
+        "link": "https://lenta.ru/news/2026/03/16/nologi/",
+        "published": "Mon, 16 Mar 2026 11:55:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Названы самые популярные у россиян страны для открытия банковских счетов",
+        "link": "https://lenta.ru/news/2026/03/16/nazvany-samye-populyarnye-u-rossiyan-strany-dlya-otkrytiya-bankovskih-schetov/",
+        "published": "Mon, 16 Mar 2026 11:50:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Крупный ближневосточный порт прекратил погрузку нефти",
+        "link": "https://lenta.ru/news/2026/03/16/krupnyy-blizhnevostochnyy-port-prekratil-pogruzku-nefti/",
+        "published": "Mon, 16 Mar 2026 11:38:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Жители московского ЖК пожаловались на полчища крыс",
+        "link": "https://lenta.ru/news/2026/03/16/zhiteli-moskovskogo-zhk-pozhalovalis-na-polchischa-krys/",
+        "published": "Mon, 16 Mar 2026 11:16:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Мировые цены на нефть превысили 105 долларов",
+        "link": "https://lenta.ru/news/2026/03/16/mirovye-tseny-na-neft-prevysili-105-dollarov/",
+        "published": "Mon, 16 Mar 2026 10:51:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В Москве и Подмосковье проснулись клещи",
+        "link": "https://lenta.ru/news/2026/03/16/v-moskve-i-podmoskovie-prosnulis-kleschi/",
+        "published": "Mon, 16 Mar 2026 10:40:08 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В России вырос престиж некоторых профессий",
+        "link": "https://lenta.ru/news/2026/03/16/v-rossii-vyros-prestizh-nekotoryh-professiy/",
+        "published": "Mon, 16 Mar 2026 10:40:04 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Названы последствия преждевременного отключения отопления",
+        "link": "https://lenta.ru/news/2026/03/16/teplo-vozdukh/",
+        "published": "Mon, 16 Mar 2026 10:23:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Американские энергогиганты запаниковали из-за эскалации на Ближнем Востоке",
+        "link": "https://lenta.ru/news/2026/03/16/amerikanskie-energogiganty-zapanikovali-iz-za-eskalatsii-na-blizhnem-vostoke/",
+        "published": "Mon, 16 Mar 2026 10:14:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиянам перестало хватать денег для накоплений",
+        "link": "https://lenta.ru/news/2026/03/16/rossiyanam-perestalo-hvatat-deneg-dlya-nakopleniy/",
+        "published": "Mon, 16 Mar 2026 10:08:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В России спрогнозировали подорожание пластиковой тары из-за войны в Иране",
+        "link": "https://lenta.ru/news/2026/03/16/v-rossii-sprognozirovali-podorozhanie-plastikovoy-tary-iz-za-voyny-v-irane/",
+        "published": "Mon, 16 Mar 2026 09:41:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россия удвоила поставки дизельного топлива в одну страну",
+        "link": "https://lenta.ru/news/2026/03/16/diz/",
+        "published": "Mon, 16 Mar 2026 09:26:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Глуховский спешно избавился от двух квартир в центре Москвы",
+        "link": "https://lenta.ru/news/2026/03/16/gluhovskiy-speshno-izbavilsya-ot-dvuh-kvartir-v-tsentre-moskvy/",
+        "published": "Mon, 16 Mar 2026 09:13:04 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Количество банкоматов в России упало до минимума",
+        "link": "https://lenta.ru/news/2026/03/16/kolichestvo-bankomatov-v-rossii-upalo-do-minimuma/",
+        "published": "Mon, 16 Mar 2026 09:11:39 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россиянам назвали налоговый вычет без лимита",
+        "link": "https://lenta.ru/news/2026/03/16/rossiyanam-nazvali-nalogovyy-vychet-bez-limita/",
+        "published": "Mon, 16 Mar 2026 08:58:05 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Москвичам рассказали о погоде во второй половине марта",
+        "link": "https://lenta.ru/news/2026/03/16/moskvicham-rasskazali-o-pogode-vo-vtoroy-polovine-marta/",
+        "published": "Mon, 16 Mar 2026 08:44:06 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Безработица в одном из регионов России превысила 25 процентов",
+        "link": "https://lenta.ru/news/2026/03/16/bezrabotitsa-v-odnom-iz-regionov-rossii-prevysila-25-protsentov/",
+        "published": "Mon, 16 Mar 2026 08:34:43 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Цены на российский уголь взлетели",
+        "link": "https://lenta.ru/news/2026/03/16/coal/",
+        "published": "Mon, 16 Mar 2026 08:14:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россияне признались в непонимании капремонта",
+        "link": "https://lenta.ru/news/2026/03/13/rossiyane-priznalis-v-neponimanii-kapremonta/",
+        "published": "Mon, 16 Mar 2026 06:32:34 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В России спрогнозировали повышение цен на нефть",
+        "link": "https://lenta.ru/news/2026/03/16/v-rossii-sprognozirovali-povyshenie-tsen-na-neft/",
+        "published": "Mon, 16 Mar 2026 06:23:10 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Дачников предупредили о грубых ошибках в саду в марте",
+        "link": "https://lenta.ru/news/2026/03/16/dachnikov-predupredili-o-grubyh-oshibkah-v-sadu-v-marte/",
+        "published": "Mon, 16 Mar 2026 06:01:17 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Назван средний размер пенсии россиян",
+        "link": "https://lenta.ru/news/2026/03/16/nazvan-sredniy-razmer-pensii-rossiyan/",
+        "published": "Mon, 16 Mar 2026 03:34:34 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Работающих россиян предупредили об изменениях в 2026 году",
+        "link": "https://lenta.ru/news/2026/03/16/rabotayuschih-rossiyan-predupredili-o-masshtabnyh-izmeneniyah-v-2026-godu/",
+        "published": "Mon, 16 Mar 2026 03:15:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Яркий зеленый свет в небе вызвал панику в Турции",
+        "link": "https://lenta.ru/news/2026/03/16/yarkiy/",
+        "published": "Mon, 16 Mar 2026 01:40:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Раскрыта разница между зарплатами медиков и учителей",
+        "link": "https://lenta.ru/news/2026/03/16/raskryta-raznitsa-mezhdu-zarplatami-medikov-i-uchiteley/",
+        "published": "Sun, 15 Mar 2026 21:16:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "США оценили вред для своей экономики из-за войны с Ираном",
+        "link": "https://lenta.ru/news/2026/03/15/ssha-otsenili-vred-dlya-svoey-ekonomiki-iz-za-voyny-s-iranom/",
+        "published": "Sun, 15 Mar 2026 20:30:27 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "США переложили задачу охраны судов в Ормузском проливе на другие страны",
+        "link": "https://lenta.ru/news/2026/03/15/ssha-proyasnili-svoyu-pozitsiyu-po-ohrane-sudov-v-ormuzskom-prolive/",
+        "published": "Sun, 15 Mar 2026 17:49:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Миллер сообщил о сложностях для закачки газа в странах ЕС",
+        "link": "https://lenta.ru/news/2026/03/15/miller-soobschil-o-slozhnostyah-dlya-zakachki-gaza-v-stranah-es/",
+        "published": "Sun, 15 Mar 2026 15:44:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Киевский вокзал в Москве предложили переименовать",
+        "link": "https://lenta.ru/news/2026/03/15/kievskiy-vokzal-v-moskve-predlozhili-pereimenovat/",
+        "published": "Sun, 15 Mar 2026 15:33:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.221582",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Постсоветская республика ввела санкции против России и Китая",
+        "link": "https://lenta.ru/news/2026/03/15/postsovetskaya-respublika-vvela-sanktsii-protiv-rossii-i-kitaya/",
+        "published": "Sun, 15 Mar 2026 14:45:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "США отказались вводить новые санкции против российской нефти",
+        "link": "https://lenta.ru/news/2026/03/15/ssha-otkazalis-vvodit-novye-sanktsii-protiv-rossiyskoy-nefti/",
+        "published": "Sun, 15 Mar 2026 14:34:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В Москве установлен третий за месяц температурный рекорд",
+        "link": "https://lenta.ru/news/2026/03/15/v-moskve-ustanovlen-tretiy-za-mesyats-temperaturnyy-rekord/",
+        "published": "Sun, 15 Mar 2026 14:23:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Европейская страна возродит забытую технологию из-за проблем с газом",
+        "link": "https://lenta.ru/news/2026/03/15/evropeyskaya-strana-vozrodit-zabytuyu-tehnologiyu-iz-za-problem-s-gazom/",
+        "published": "Sun, 15 Mar 2026 13:39:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Риск дефицита фисташек и шоколада в России оценили",
+        "link": "https://lenta.ru/news/2026/03/15/risk-defitsita-fistashek-i-shokolada-v-rossii-otsenili/",
+        "published": "Sun, 15 Mar 2026 12:51:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Назван неожиданный бенефициар закрытия Ормузского пролива",
+        "link": "https://lenta.ru/news/2026/03/15/nazvan-neozhidannyy-benefitsiar-zakrytiya-ormuzskogo-proliva/",
+        "published": "Sun, 15 Mar 2026 11:19:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В Госдуме предложили способ сэкономить на коммунальных платежах",
+        "link": "https://lenta.ru/news/2026/03/15/v-gosdume-predlozhili-sposob-sekonomit-na-kommunalnyh-platezhah/",
+        "published": "Sun, 15 Mar 2026 10:31:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Москвичам пообещали рекордное тепло",
+        "link": "https://lenta.ru/news/2026/03/15/moskvicham-poobeschali-rekordnoe-teplo/",
+        "published": "Sun, 15 Mar 2026 09:38:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Раскрыты последствия отказа от ослабления антироссийских санкций для ЕС",
+        "link": "https://lenta.ru/news/2026/03/15/raskryty-posledstviya-otkaza-ot-oslableniya-antirossiyskih-sanktsiy-dlya-es/",
+        "published": "Sun, 15 Mar 2026 08:32:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Предсказано влияние конфликта вокруг Ирана на стоимость овощей в России",
+        "link": "https://lenta.ru/news/2026/03/15/ovostchi/",
+        "published": "Sun, 15 Mar 2026 07:02:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Нацбанк Украины продал миллиард долларов для удержания курса гривны",
+        "link": "https://lenta.ru/news/2026/03/15/natsbank-ukrainy-prodal-milliard-dollarov-dlya-uderzhaniya-kursa-grivny/",
+        "published": "Sun, 15 Mar 2026 00:53:06 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Эпичное извержение одного из самых активных вулканов в мире попало на видео",
+        "link": "https://lenta.ru/news/2026/03/14/epichnoe-izverzhenie-odnogo-iz-samyh-aktivnyh-vulkanov-v-mire-popalo-na-video/",
+        "published": "Sat, 14 Mar 2026 23:42:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Трамп навредил мировой экономике",
+        "link": "https://lenta.ru/news/2026/03/14/tramp-navredil-ekonomike-ssha/",
+        "published": "Sat, 14 Mar 2026 21:44:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Италия захотела ослабить нефтяные санкции против России",
+        "link": "https://lenta.ru/news/2026/03/14/italiya-zahotela-oslabit-neftyanye-sanktsii-protiv-rossii/",
+        "published": "Sat, 14 Mar 2026 21:24:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Москвичей предупредили о возвращении морозов",
+        "link": "https://lenta.ru/news/2026/03/14/moskvichey-predupredili-o-vozvraschenii-morozov/",
+        "published": "Sat, 14 Mar 2026 20:14:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Пенсионер поверил телефонным аферистам и расстался с 10 миллионами рублей",
+        "link": "https://lenta.ru/news/2026/03/14/aferisty-msk/",
+        "published": "Sat, 14 Mar 2026 17:59:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Грядущий супер-Эль-Ниньо приведет к новым тепловым рекордам",
+        "link": "https://lenta.ru/news/2026/03/14/elnino-sila/",
+        "published": "Sat, 14 Mar 2026 16:55:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Россияне лишатся цветов из-за стихийного бедствия в Колумбии",
+        "link": "https://lenta.ru/news/2026/03/14/gortenziyi-columbia/",
+        "published": "Sat, 14 Mar 2026 16:19:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Известная детская песня стала «оружием» черных риелторов",
+        "link": "https://lenta.ru/news/2026/03/14/izvestnaya-detskaya-pesnya-stala-oruzhiem-chernyh-rieltorov/",
+        "published": "Sat, 14 Mar 2026 15:27:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В России предложили давать компенсацию не получившим место в детсаду",
+        "link": "https://lenta.ru/news/2026/03/14/detsad-kompensaciya/",
+        "published": "Sat, 14 Mar 2026 15:10:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Япония призвала отменить санкции на российскую нефть",
+        "link": "https://lenta.ru/news/2026/03/14/yaponiya-prizvala-otmenit-sanktsii-na-rossiyskuyu-neft/",
+        "published": "Sat, 14 Mar 2026 14:31:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Назван срок исчезновения снега в Москве",
+        "link": "https://lenta.ru/news/2026/03/14/msk-sneg/",
+        "published": "Sat, 14 Mar 2026 14:27:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Петербург попрощался со снегом",
+        "link": "https://lenta.ru/news/2026/03/14/spb-sneg/",
+        "published": "Sat, 14 Mar 2026 14:07:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "В России оценили вероятность роста цен на хлеб после введения нового ГОСТа",
+        "link": "https://lenta.ru/news/2026/03/14/v-rossii-otsenili-veroyatnost-rosta-tsen-na-hleb-posle-vvedeniya-novogo-gosta/",
+        "published": "Sat, 14 Mar 2026 12:42:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "Ушедшая из России The Coca-Cola Company продлила действия товарных знаков",
+        "link": "https://lenta.ru/news/2026/03/14/ushedshaya-iz-rossii-the-coca-cola-company-prodlila-deystviya-tovarnyh-znakov/",
+        "published": "Sat, 14 Mar 2026 12:22:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
+    },
+    {
+        "title": "На Землю обрушилась продолжительная магнитная буря",
+        "link": "https://lenta.ru/news/2026/03/14/burya-magnit/",
+        "published": "Sat, 14 Mar 2026 10:25:00 +0300",
+        "summary": "",
+        "source": "Lenta.ru : Новости : Экономика",
+        "source_url": "https://lenta.ru/rss/news/economics",
+        "language": "ru",
+        "fetched_at": "2026-03-18T08:45:30.222585",
+        "portfolio_risk_analysis": {
+            "has_portfolio_risk": false,
+            "summary": "Mistral API key не задан, анализ пропущен.",
+            "dangerous_categories": [],
+            "category_details": []
+        }
     }
 ]

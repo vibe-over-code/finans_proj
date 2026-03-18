@@ -10,6 +10,8 @@ services:
     environment:
       - PORTFOLIO_SERVICE_URL=http://portfolio-service:8000/api/check
       - BATCH_SIZE=5
+      - CHECK_INTERVAL_MINUTES=10
+      - MKey=${MKey}
     logging:
       driver: "json-file"
       options:
