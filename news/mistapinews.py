@@ -8,8 +8,12 @@ import feedparser
 import requests
 import schedule
 from mistralai import Mistral
+from dotenv import load_dotenv
 
+# Загружаем переменные из .env
+load_dotenv()
 
+# --- Конфигурация ---
 DEFAULT_RSS_FEEDS = [
     "https://www.gazeta.ru/export/rss/business.xml",
     "https://www.banki.ru/xml/news.rss",
@@ -17,27 +21,19 @@ DEFAULT_RSS_FEEDS = [
 ]
 
 RISK_CATEGORIES = [
-    "акции",
-    "облигации",
-    "валюта",
-    "золото и сырьё",
-    "нефть и газ",
-    "банковский сектор",
-    "технологический сектор",
-    "недвижимость",
-    "геополитика",
-    "инфляция и ставки",
+    "акции", "облигации", "валюта", "золото и сырьё",
+    "нефть и газ", "банковский сектор", "технологический сектор",
+    "недвижимость", "геополитика", "инфляция и ставки",
 ]
 
 DATA_FILE = os.getenv("DATA_FILE", "data/financial_news.json")
-PORTFOLIO_SERVICE_URL = os.getenv(
-    "PORTFOLIO_SERVICE_URL",
-    "http://localhost:8000/api/check_portfolio",
-)
+PORTFOLIO_SERVICE_URL = os.getenv("PORTFOLIO_SERVICE_URL", "http://localhost:8000/api/check_portfolio")
 BATCH_SIZE = int(os.getenv("BATCH_SIZE", "5"))
 CHECK_INTERVAL_MINUTES = int(os.getenv("CHECK_INTERVAL_MINUTES", "10"))
-MISTRAL_API_KEY = os.getenv("MKey")
-MISTRAL_MODEL = os.getenv("MISTRAL_MODEL", "mistral-large-latest")
+
+# ВАЖНО: Убедись, что в .env файл записано MKey=ваш_ключ
+MISTRAL_API_KEY = os.getenv("MKey") or os.getenv("MISTRAL_API_KEY")
+MISTRAL_MODEL = os.getenv("MISTRAL_MODEL", "mistral-medium-latest")
 
 client = Mistral(api_key=MISTRAL_API_KEY) if MISTRAL_API_KEY else None
 
@@ -65,57 +61,42 @@ ANALYSIS_PROMPT = (
     "    }\n"
     "  ]\n"
     "}\n\n"
-    "Если явной опасности нет, верни has_portfolio_risk=false, пустые dangerous_categories "
-    "и category_details. Не добавляй категории, которых нет в списке."
+    "Если явной опасности нет, верни has_portfolio_risk=false."
 )
 
-# Глобальное состояние процесса
 seen_links = set()
 pending_news = []
 
+# --- Утилиты ---
 
 def load_existing_news():
-    """Загружает новости и восстанавливает набор уже обработанных ссылок."""
     global seen_links
-
     if os.path.exists(DATA_FILE):
         try:
             with open(DATA_FILE, "r", encoding="utf-8") as file:
                 news_data = json.load(file)
                 seen_links = {item["link"] for item in news_data if item.get("link")}
                 return news_data
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, Exception):
             print("Ошибка чтения JSON. Файл будет перезаписан.")
-
     return []
 
-
 def save_news_to_json(all_news):
-    """Сохраняет новости в JSON-файл."""
     data_dir = os.path.dirname(DATA_FILE)
     if data_dir:
         os.makedirs(data_dir, exist_ok=True)
     with open(DATA_FILE, "w", encoding="utf-8") as file:
         json.dump(all_news, file, ensure_ascii=False, indent=4)
 
-
 def clean_html(raw_text):
-    """Удаляет HTML-теги и лишние пробелы."""
-    if not raw_text:
-        return ""
+    if not raw_text: return ""
     text = re.sub(r"<[^>]+>", " ", raw_text)
     return re.sub(r"\s+", " ", text).strip()
 
-
 def build_news_text(news_item):
-    """Собирает текст новости для анализа моделью."""
-    title = news_item.get("title", "")
-    summary = clean_html(news_item.get("summary", ""))
-    return f"Заголовок: {title}\nКраткое содержание: {summary}"
-
+    return f"Заголовок: {news_item.get('title', '')}\nКраткое содержание: {clean_html(news_item.get('summary', ''))}"
 
 def fallback_analysis(reason):
-    """Возвращает безопасную структуру при недоступности анализа."""
     return {
         "has_portfolio_risk": False,
         "summary": reason,
@@ -123,42 +104,24 @@ def fallback_analysis(reason):
         "category_details": [],
     }
 
-
 def extract_json_payload(raw_content):
-    """Достаёт JSON из ответа модели, даже если она вернула лишний текст."""
     text = str(raw_content).strip()
     fenced_match = re.search(r"```json\s*(\{.*?\})\s*```", text, re.DOTALL)
-    if fenced_match:
-        return fenced_match.group(1)
-
+    if fenced_match: return fenced_match.group(1)
     json_match = re.search(r"(\{.*\})", text, re.DOTALL)
-    if json_match:
-        return json_match.group(1)
-
-    return text
-
+    return json_match.group(1) if json_match else text
 
 def normalize_analysis(analysis):
-    """Нормализует ответ модели до ожидаемой структуры."""
-    dangerous_categories = [
-        category
-        for category in analysis.get("dangerous_categories", [])
-        if category in RISK_CATEGORIES
+    dangerous_categories = [c for c in analysis.get("dangerous_categories", []) if c in RISK_CATEGORIES]
+    category_details = [
+        {
+            "category": item.get("category"),
+            "risk_level": item.get("risk_level", "medium"),
+            "reason": item.get("reason", "").strip(),
+        }
+        for item in analysis.get("category_details", [])
+        if item.get("category") in RISK_CATEGORIES
     ]
-
-    category_details = []
-    for item in analysis.get("category_details", []):
-        category = item.get("category")
-        if category not in RISK_CATEGORIES:
-            continue
-        category_details.append(
-            {
-                "category": category,
-                "risk_level": item.get("risk_level", "medium"),
-                "reason": item.get("reason", "").strip(),
-            }
-        )
-
     return {
         "has_portfolio_risk": bool(analysis.get("has_portfolio_risk")),
         "summary": str(analysis.get("summary", "")).strip(),
@@ -166,10 +129,10 @@ def normalize_analysis(analysis):
         "category_details": category_details,
     }
 
+# --- Логика анализа ---
 
 def analyze_news_with_mistral(news_item):
-    """Прогоняет новость через Mistral и возвращает риск-анализ."""
-    if client is None:
+    if not client:
         return fallback_analysis("Mistral API key не задан, анализ пропущен.")
 
     messages = [
@@ -180,58 +143,79 @@ def analyze_news_with_mistral(news_item):
     try:
         response = client.chat.complete(model=MISTRAL_MODEL, messages=messages)
         raw_content = response.choices[0].message.content
-        if isinstance(raw_content, list):
-            raw_content = "".join(
-                chunk.get("text", "") if isinstance(chunk, dict) else str(chunk)
-                for chunk in raw_content
-            )
-
         parsed = json.loads(extract_json_payload(raw_content))
         return normalize_analysis(parsed)
     except Exception as error:
-        print(f"Ошибка анализа Mistral для новости '{news_item.get('title', '')}': {error}")
+        print(f"Ошибка Mistral для '{news_item.get('title')}': {error}")
         return fallback_analysis(f"Ошибка анализа: {error}")
 
+def has_portfolio_analysis(news_item):
+    """Проверяет, есть ли у новости НОРМАЛЬНЫЙ анализ (не заглушка)."""
+    analysis = news_item.get("portfolio_risk_analysis")
+    if not isinstance(analysis, dict) or "has_portfolio_risk" not in analysis:
+        return False
+    
+    # Если в summary текст нашей ошибки - значит анализа по факту нет
+    summary = analysis.get("summary", "")
+    if "Mistral API key не задан, анализ пропущен." in summary or "Ошибка анализа" in summary:
+        return False
+    return True
 
 def notify_portfolio_service(news_batch):
-    """Отправляет пачку уже проанализированных новостей в микросервис портфеля."""
     payload = {
         "timestamp": datetime.now().isoformat(),
         "risk_categories": RISK_CATEGORIES,
         "news_items": news_batch,
     }
-
     try:
-        print(f"[{datetime.now()}] Отправка {len(news_batch)} новостей в сервис портфелей...")
-        response = requests.post(PORTFOLIO_SERVICE_URL, json=payload, timeout=5)
-
+        print(f"[{datetime.now()}] Отправка батча ({len(news_batch)} шт.) в сервис...")
+        response = requests.post(PORTFOLIO_SERVICE_URL, json=payload, timeout=10)
         if response.status_code == 200:
             print("Успешно доставлено.")
             return True
-
         print(f"Ошибка API: {response.status_code}")
-        return False
-    except requests.exceptions.RequestException as error:
-        print(f"Не удалось связаться с сервисом портфелей: {error}")
-        return False
+    except Exception as error:
+        print(f"Сервис портфелей недоступен: {error}")
+    return False
 
+# --- Основные шаги процесса ---
+
+def backfill_missing_analysis(all_news):
+    """Шаг 1: Проверка и доанализ старых новостей из JSON."""
+    backfilled = []
+    print(f"[{datetime.now()}] Проверка базы на новости без анализа...")
+    
+    for item in all_news:
+        if not has_portfolio_analysis(item):
+            print(f"-> Доанализируем: {item.get('title')[:50]}...")
+            item["portfolio_risk_analysis"] = analyze_news_with_mistral(item)
+            backfilled.append(item)
+    
+    return backfilled
 
 def fetch_and_process_news():
-    """Парсит русские RSS-ленты, анализирует новые новости и отправляет батч дальше."""
+    """Полный цикл: Сначала база, потом RSS."""
     global pending_news
 
-    print(f"[{datetime.now()}] Проверка RSS-лент...")
+    # 1. Загружаем то, что есть в файле
     all_news = load_existing_news()
-    new_items_found = False
+    
+    # 2. ШАГ 1: Исправляем старые новости
+    backfilled_items = backfill_missing_analysis(all_news)
+    if backfilled_items:
+        save_news_to_json(all_news)
+        pending_news.extend(backfilled_items)
+        print(f"Исправлено старых записей: {len(backfilled_items)}")
 
+    # 3. ШАГ 2: Парсим новые новости из интернета
+    print(f"[{datetime.now()}] Проверка RSS-лент...")
+    new_found = False
     for feed_url in RSS_FEEDS:
         try:
             feed = feedparser.parse(feed_url)
             for entry in feed.entries:
                 link = entry.get("link")
-
-                if not link or link in seen_links:
-                    continue
+                if not link or link in seen_links: continue
 
                 news_item = {
                     "title": clean_html(entry.get("title", "Без заголовка")),
@@ -243,30 +227,33 @@ def fetch_and_process_news():
                     "language": "ru",
                     "fetched_at": datetime.now().isoformat(),
                 }
+                
+                print(f"-> Новая новость: {news_item['title'][:50]}...")
                 news_item["portfolio_risk_analysis"] = analyze_news_with_mistral(news_item)
-
+                
                 all_news.append(news_item)
                 seen_links.add(link)
                 pending_news.append(news_item)
-                new_items_found = True
+                new_found = True
+        except Exception as e:
+            print(f"Ошибка RSS {feed_url}: {e}")
 
-        except Exception as error:
-            print(f"Ошибка при обработке {feed_url}: {error}")
-
-    if new_items_found:
+    if new_found:
         save_news_to_json(all_news)
-        print(f"Сохранено новых статей: {len(pending_news)}")
 
-    if len(pending_news) >= BATCH_SIZE:
-        success = notify_portfolio_service(pending_news)
-        if success:
-            pending_news.clear()
-
+    # 4. Отправка накопленного в микросервис (порциями по BATCH_SIZE)
+    while len(pending_news) >= BATCH_SIZE:
+        batch = pending_news[:BATCH_SIZE]
+        if notify_portfolio_service(batch):
+            del pending_news[:BATCH_SIZE]
+        else:
+            break
 
 if __name__ == "__main__":
-    load_existing_news()
-    print("Сервис новостей запущен. Ожидание расписания...")
-
+    if not MISTRAL_API_KEY:
+        print("ВНИМАНИЕ: MISTRAL_API_KEY не найден в .env файле!")
+    
+    print("Сервис запущен. Первый запуск...")
     fetch_and_process_news()
 
     schedule.every(CHECK_INTERVAL_MINUTES).minutes.do(fetch_and_process_news)
