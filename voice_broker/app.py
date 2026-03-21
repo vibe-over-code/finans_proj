@@ -1,6 +1,7 @@
 import json
 import os
 import queue
+import re
 import tempfile
 import threading
 import time
@@ -11,104 +12,75 @@ import numpy as np
 import sounddevice as sd
 import soundfile as sf
 import torch
-from dotenv import load_dotenv
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from pydantic import BaseModel
 from transformers import AutoProcessor, Qwen2AudioForConditionalGeneration
 
-load_dotenv()
-
+# --- КОНФИГУРАЦИЯ ---
 MODEL_ID = os.getenv("QWEN2_AUDIO_MODEL", "Qwen/Qwen2-Audio-7B-Instruct")
 DEFAULT_MAX_NEW_TOKENS = int(os.getenv("VOICE_MAX_NEW_TOKENS", "256"))
 DEFAULT_SAMPLE_RATE = int(os.getenv("VOICE_SAMPLE_RATE", "16000"))
 DEFAULT_MAX_SECONDS = int(os.getenv("VOICE_MAX_SECONDS", "30"))
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+DTYPE = torch.bfloat16 if torch.cuda.is_available() else torch.float32
 
-SYSTEM_PROMPT = """Ты анализируешь голосовые сообщения для инвестиционного голосового помощника.
-Нужно по голосу и словам пользователя определить:
-- точную расшифровку речи;
-- эмоциональный тон;
-- уверенность или тревожность;
-- есть ли срочность в запросе;
-- как лучше ответить помощнику в следующей реплике.
+SYSTEM_PROMPT = """Ты — эксперт по анализу речевых эмоций (SER). Твоя задача: оценить психоэмоциональное состояние человека по голосу.
+Игнорируй содержание слов, фокусируйся на интонации, громкости, темпе и дрожании голоса.
 
-Верни только JSON без markdown в формате:
+Выдай результат СТРОГО в формате JSON:
 {
-  "transcript": "текст речи пользователя",
-  "sentiment": "positive|neutral|negative|mixed",
-  "emotion": "calm|confident|uncertain|anxious|excited|frustrated",
-  "urgency": "low|medium|high",
-  "confidence_score": 0.0,
-  "investment_intent": "кратко опиши, что хотел пользователь",
-  "tone_summary": "кратко опиши голосовой тон и настроение",
-  "assistant_reply_hint": "как помощнику лучше ответить следующим сообщением"
+  "stability": 0.0-1.0,
+  "emotions": "названия ключевых эмоций",
+  "acoustic_analysis": "краткое описание: темп, интонационная кривая, наличие стресс-маркеров",
+  "risk_level": "low/medium/high"
 }
-"""
 
-USER_PROMPT = """Проанализируй это голосовое сообщение пользователя для инвестиционного ассистента.
-Учитывай не только слова, но и эмоциональную подачу голоса.
-Ответь строго JSON."""
+Критерии stability:
+1.0 — Монотонный, уверенный, спокойный голос (диктор, профессионал).
+0.5 — Обычный разговорный голос с естественными модуляциями.
+0.0 — Паника, истерика, сильный гнев или прерывистое дыхание."""
 
+USER_PROMPT = "Проанализируй акустику голоса. Текстовая расшифровка не нужна. Сосредоточься на эмоциональной стабильности."
 
+# --- МОДЕЛИ ДАННЫХ ---
 class VoiceAnalysisResponse(BaseModel):
-    transcript: str
-    sentiment: str
-    emotion: str
-    urgency: str
-    confidence_score: float
-    investment_intent: str
-    tone_summary: str
-    assistant_reply_hint: str
-    raw_model_text: str | None = None
-
+    text: str
+    stability_score: float
+    emotions: str
+    raw_output: str
 
 class HealthResponse(BaseModel):
     status: str
     model_id: str
     model_loaded: bool
 
+app = FastAPI(title="Voice Broker Stability Service")
 
-app = FastAPI(title="Voice Broker Test Service")
-
+# --- ГЛОБАЛЬНЫЕ ОБЪЕКТЫ ---
 _model_lock = threading.Lock()
 _processor: AutoProcessor | None = None
 _model: Qwen2AudioForConditionalGeneration | None = None
-_device: str | None = None
 
-
-def get_device() -> str:
-    if torch.cuda.is_available():
-        return "cuda"
-    return "cpu"
-
-
-def get_torch_dtype() -> torch.dtype:
-    if torch.cuda.is_available():
-        return torch.float16
-    return torch.float32
-
-
-def load_model() -> tuple[AutoProcessor, Qwen2AudioForConditionalGeneration, str]:
-    global _processor, _model, _device
+def load_model() -> tuple[AutoProcessor, Qwen2AudioForConditionalGeneration]:
+    global _processor, _model
 
     with _model_lock:
-        if _processor is None or _model is None or _device is None:
-            device = get_device()
-            print(f"[model] loading {MODEL_ID} on {device} ...")
+        if _processor is None or _model is None:
+            print(f"[model] Загрузка {MODEL_ID} на {DEVICE} ...")
             _processor = AutoProcessor.from_pretrained(MODEL_ID, trust_remote_code=True)
             _model = Qwen2AudioForConditionalGeneration.from_pretrained(
                 MODEL_ID,
-                torch_dtype=get_torch_dtype(),
+                torch_dtype=DTYPE,
                 low_cpu_mem_usage=True,
                 trust_remote_code=True,
             )
-            _model.to(device)
+            _model.to(DEVICE)
             _model.eval()
-            _device = device
-            print("[model] ready")
+            print("[model] Модель готова")
 
-    return _processor, _model, _device
+    return _processor, _model
 
-
+# --- РАБОТА С МИКРОФОНОМ ---
 def list_microphones() -> list[dict[str, Any]]:
     devices = sd.query_devices()
     result = []
@@ -123,7 +95,6 @@ def list_microphones() -> list[dict[str, Any]]:
                 }
             )
     return result
-
 
 def choose_input_device() -> int | None:
     devices = list_microphones()
@@ -144,7 +115,6 @@ def choose_input_device() -> int | None:
         return int(default_input) if default_input is not None and int(default_input) >= 0 else None
     return int(raw_value)
 
-
 def record_microphone_to_wav(
     output_path: Path,
     sample_rate: int = DEFAULT_SAMPLE_RATE,
@@ -158,7 +128,6 @@ def record_microphone_to_wav(
     started_at = time.monotonic()
 
     def callback(indata: np.ndarray, frames: int, stream_time: Any, status: sd.CallbackFlags) -> None:
-        del frames, stream_time
         if status:
             print(f"[audio] status: {status}")
         audio_chunks.append(indata.copy())
@@ -196,83 +165,85 @@ def record_microphone_to_wav(
         raise errors.get()
 
     if not audio_chunks:
-        raise RuntimeError("Запись не содержит аудио. Проверьте микрофон и разрешения.")
+        raise RuntimeError("Запись не содержит аудио. Проверьте микрофон.")
 
     audio = np.concatenate(audio_chunks, axis=0)
     sf.write(str(output_path), audio, sample_rate)
     return output_path
 
-
-def build_analysis_prompt() -> str:
-    return (
-        "<|audio_bos|><|AUDIO|><|audio_eos|>\n"
-        f"{SYSTEM_PROMPT}\n\n"
-        f"{USER_PROMPT}"
-    )
-
-
-def extract_json_payload(text: str) -> dict[str, Any]:
-    raw = text.strip()
-    if raw.startswith("```"):
-        lines = raw.splitlines()
-        if len(lines) >= 3:
-            raw = "\n".join(lines[1:-1]).strip()
-    start = raw.find("{")
-    end = raw.rfind("}")
-    if start == -1 or end == -1 or end < start:
-        raise ValueError("Model did not return JSON")
-    return json.loads(raw[start : end + 1])
-
-
-def analyze_audio_file(audio_path: str | Path, max_new_tokens: int = DEFAULT_MAX_NEW_TOKENS) -> VoiceAnalysisResponse:
-    processor, model, device = load_model()
-    path = Path(audio_path)
-    if not path.exists():
-        raise FileNotFoundError(f"Audio file not found: {path}")
-
-    audio, sample_rate = sf.read(str(path), dtype="float32", always_2d=False)
-    if isinstance(audio, np.ndarray) and audio.ndim > 1:
-        audio = audio.mean(axis=1)
-
-    target_sr = processor.feature_extractor.sampling_rate
-    if sample_rate != target_sr:
+# --- ЛОГИКА АНАЛИЗА ---
+def parse_stability(text: str) -> float:
+    match = re.search(r"Стабильность:\s*([\d.]+)", text)
+    if match:
         try:
-            import librosa
-        except ImportError as error:
-            raise RuntimeError(
-                f"Audio sample rate is {sample_rate}, but model expects {target_sr}. Install librosa or record at {target_sr} Hz."
-            ) from error
-        audio = librosa.resample(audio, orig_sr=sample_rate, target_sr=target_sr)
-        sample_rate = target_sr
+            return float(match.group(1))
+        except ValueError:
+            pass
+    return 0.5
 
-    prompt = build_analysis_prompt()
-    inputs = processor(text=prompt, audio=audio, return_tensors="pt")
-    inputs = {key: value.to(device) if hasattr(value, "to") else value for key, value in inputs.items()}
+def analyze_audio_file(audio_path: str | Path, max_new_tokens: int = 128) -> VoiceAnalysisResponse:
+    processor, model = load_model()
+    path = Path(audio_path)
+
+    # Загрузка и подготовка аудио (16кГц)
+    import librosa
+    audio, _ = librosa.load(str(path), sr=16000)
+
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": [
+            {"type": "audio", "audio_url": "input.wav"}, 
+            {"type": "text", "text": USER_PROMPT}
+        ]}
+    ]
+
+    prompt = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=False)
+    inputs = processor(text=prompt, audio=audio, sampling_rate=16000, return_tensors="pt").to(DEVICE)
 
     with torch.no_grad():
-        generated_ids = model.generate(**inputs, max_new_tokens=max_new_tokens)
+        generated_ids = model.generate(
+            **inputs,
+            max_new_tokens=max_new_tokens,
+            do_sample=False  # Для максимальной строгости
+        )
 
-    prompt_length = inputs["input_ids"].shape[1]
-    new_tokens = generated_ids[:, prompt_length:]
-    raw_output = processor.batch_decode(
-        new_tokens,
-        skip_special_tokens=True,
-        clean_up_tokenization_spaces=False,
-    )[0].strip()
-    payload = extract_json_payload(raw_output)
-    payload["raw_model_text"] = raw_output
-    return VoiceAnalysisResponse(**payload)
+    generated_ids = generated_ids[:, inputs["input_ids"].size(1):]
+    response_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0].strip()
 
+    # --- Парсинг JSON ---
+    stability = 0.5
+    emo_val = "Не определено"
+    
+    try:
+        # Очистка и поиск JSON
+        clean_json = re.sub(r'```json\s*|```', '', response_text).strip()
+        start = clean_json.find('{')
+        end = clean_json.rfind('}') + 1
+        
+        if start != -1 and end != 0:
+            data = json.loads(clean_json[start:end])
+            stability = data.get("stability", 0.5)
+            # Собираем описание из анализа и списка эмоций
+            emo_val = f"{data.get('emotions', '')} | {data.get('acoustic_analysis', '')}"
+    except Exception as e:
+        print(f"Ошибка парсинга: {e}")
 
+    # Исправляем опечатку в названии переменной и ключа
+    return VoiceAnalysisResponse(
+        text="[СКРЫТО]", 
+        stability_score=float(stability), # Теперь название совпадает с моделью Pydantic
+        emotions=str(emo_val),
+        raw_output=response_text
+    )
+
+# --- API ENDPOINTS ---
 @app.get("/health", response_model=HealthResponse)
 async def healthcheck() -> HealthResponse:
     return HealthResponse(status="ok", model_id=MODEL_ID, model_loaded=_model is not None)
 
-
 @app.get("/api/microphones")
 async def microphones() -> dict[str, Any]:
     return {"items": list_microphones()}
-
 
 @app.post("/api/analyze-voice", response_model=VoiceAnalysisResponse)
 async def analyze_voice(file: UploadFile = File(...)) -> VoiceAnalysisResponse:
@@ -288,17 +259,20 @@ async def analyze_voice(file: UploadFile = File(...)) -> VoiceAnalysisResponse:
     finally:
         temp_path.unlink(missing_ok=True)
 
-
+# --- ТЕРМИНАЛЬНЫЙ ИНТЕРФЕЙС ---
 def print_result(result: VoiceAnalysisResponse) -> None:
-    payload = result.model_dump() if hasattr(result, "model_dump") else result.dict()
-    print("\nAnalysis result:\n")
-    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    print("\n" + "="*40)
+    print("РЕЗУЛЬТАТ АНАЛИЗА:")
+    print("="*40)
+    # Используем .model_dump() для совместимости с Pydantic V2
+    print(json.dumps(result.model_dump(), indent=2, ensure_ascii=False))
+    print("="*40 + "\n")
 
 def run_terminal_mode() -> None:
     print("Тестовый голосовой сервис для инвестиционного ассистента")
     print(f"Модель: {MODEL_ID}")
     print("Режимы:")
-    print("  1. Запись с микрофона")
+    print("  1. Запись с микрофона (с ручной остановкой)")
     print("  2. Анализ готового аудиофайла")
     print("  3. Выход")
 
@@ -312,7 +286,7 @@ def run_terminal_mode() -> None:
 
             try:
                 wav_path = record_microphone_to_wav(temp_path, device=device)
-                print(f"\nФайл записан: {wav_path}")
+                print(f"\nАнализ файла: {wav_path}")
                 result = analyze_audio_file(wav_path)
                 print_result(result)
             except Exception as error:
@@ -337,7 +311,6 @@ def run_terminal_mode() -> None:
 
         else:
             print("Нужен выбор 1, 2 или 3.")
-
 
 if __name__ == "__main__":
     run_terminal_mode()
