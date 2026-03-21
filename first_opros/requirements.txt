@@ -1,0 +1,4 @@
+aiogram
+httpx
+mistralai
+python-dotenv

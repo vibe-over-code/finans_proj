@@ -1,0 +1,39 @@
+services:
+  portfolio-rebalancer:
+    build:
+      context: ./rebalanse
+    container_name: portfolio-rebalancer
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./rebalanse/client_data.json:/app/client_data.json
+
+  news-service:
+    build:
+      context: ./news
+    container_name: news-service
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PORTFOLIO_SERVICE_URL: http://portfolio-rebalancer:8000/api/check_portfolio
+      DATA_FILE: /app/data/financial_news.json
+    depends_on:
+      - portfolio-rebalancer
+    volumes:
+      - ./news/data:/app/data
+
+  survey-service:
+    build:
+      context: ./first_opros
+    container_name: survey-service
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PORTFOLIO_PROFILE_URL: http://portfolio-rebalancer:8000/api/client-profile
+    depends_on:
+      - portfolio-rebalancer

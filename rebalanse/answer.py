@@ -27,12 +27,22 @@ class PortfolioCheckPayload(BaseModel):
     risk_categories: List[str]
     news_items: List[NewsItem]
 
+
+class SurveyProfilePayload(BaseModel):
+    client_id: str | None = None
+    survey_result: Dict[str, Any]
+
 # --- ФУНКЦИЯ ЗАГРУЗКИ ПРОФИЛЯ ---
 def load_client_data():
     if not os.path.exists(CLIENT_FILE):
         return None
     with open(CLIENT_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def save_client_data(data: Dict[str, Any]):
+    with open(CLIENT_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
 # --- ПРОМПТ ДЛЯ MISTRAL ---
 ADVISOR_PROMPT = """Ты — персональный финансовый советник. 
@@ -57,6 +67,38 @@ ADVISOR_PROMPT = """Ты — персональный финансовый со�
 5. Не задавай вопросов в конце сообщения.
 """
 
+@app.get("/health")
+async def healthcheck():
+    return {"status": "ok"}
+
+
+@app.post("/api/client-profile")
+async def save_client_profile(payload: SurveyProfilePayload):
+    client_data = load_client_data() or {}
+    survey_result = payload.survey_result
+
+    if payload.client_id:
+        client_data["client_id"] = payload.client_id
+
+    for field in (
+        "goal",
+        "investor_type",
+        "risk_index",
+        "emotion_index",
+        "target_portfolio",
+        "recommended_portfolio",
+        "profile_summary",
+    ):
+        if field in survey_result:
+            client_data[field] = survey_result[field]
+
+    if "current_portfolio" in survey_result and survey_result["current_portfolio"]:
+        client_data["current_portfolio"] = survey_result["current_portfolio"]
+
+    save_client_data(client_data)
+    return {"status": "success", "message": "Client profile updated"}
+
+
 @app.post("/api/check_portfolio")
 async def process_news_and_advise(payload: PortfolioCheckPayload):
     client_data = load_client_data()
@@ -75,8 +117,8 @@ async def process_news_and_advise(payload: PortfolioCheckPayload):
                 investor_type=client_data["investor_type"],
                 emotion_index=client_data["emotion_index"],
                 risk_index=client_data["risk_index"],
-                current_portfolio=json.dumps(client_data["current_portfolio"], ensure_ascii=False),
-                target_portfolio=json.dumps(client_data["target_portfolio"], ensure_ascii=False),
+                current_portfolio=json.dumps(client_data.get("current_portfolio", {}), ensure_ascii=False),
+                target_portfolio=json.dumps(client_data.get("target_portfolio", {}), ensure_ascii=False),
                 profile_summary=client_data["profile_summary"],
                 news_title=news.title,
                 news_summary=analysis.get("summary"),

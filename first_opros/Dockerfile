@@ -8,8 +8,6 @@ ENV PYTHONUNBUFFERED=1
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY mistapinews.py .
+COPY mist_opros.py .
 
-RUN mkdir -p /app/data
-
-CMD ["python", "mistapinews.py"]
+CMD ["python", "mist_opros.py"]

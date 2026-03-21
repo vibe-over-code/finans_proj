@@ -8,8 +8,9 @@ ENV PYTHONUNBUFFERED=1
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY mistapinews.py .
+COPY answer.py .
+COPY client_data.json .
 
-RUN mkdir -p /app/data
+EXPOSE 8000
 
-CMD ["python", "mistapinews.py"]
+CMD ["uvicorn", "answer:app", "--host", "0.0.0.0", "--port", "8000"]
