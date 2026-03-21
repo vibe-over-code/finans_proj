@@ -3,9 +3,13 @@ import json
 import logging
 import os
 import re
+import socket
 
 import httpx
 from aiogram import Bot, Dispatcher, types
+from aiogram.client.session.aiohttp import AiohttpSession
+from aiogram.client.telegram import TelegramAPIServer
+from aiogram.exceptions import TelegramNetworkError
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
@@ -20,8 +24,20 @@ API_TOKEN = os.getenv("TGKey")
 MISTRAL_API_KEY = os.getenv("MKey")
 MISTRAL_MODEL = os.getenv("MISTRAL_MODEL", "mistral-large-latest")
 PORTFOLIO_PROFILE_URL = os.getenv("PORTFOLIO_PROFILE_URL", "http://localhost:8000/api/client-profile")
+TELEGRAM_API_BASE = os.getenv("TELEGRAM_API_BASE", "https://api.telegram.org").strip()
+TG_FORCE_IPV4 = os.getenv("TG_FORCE_IPV4", "1").strip().lower() not in {"0", "false", "no"}
 
-bot = Bot(token=API_TOKEN)
+
+def build_telegram_session() -> AiohttpSession:
+    session = AiohttpSession(
+        api=TelegramAPIServer.from_base(TELEGRAM_API_BASE),
+    )
+    if TG_FORCE_IPV4:
+        session._connector_init["family"] = socket.AF_INET
+    return session
+
+
+bot = Bot(token=API_TOKEN, session=build_telegram_session())
 dp = Dispatcher(storage=MemoryStorage())
 client = Mistral(api_key=MISTRAL_API_KEY)
 
@@ -201,7 +217,19 @@ async def handle_chat(message: types.Message, state: FSMContext):
 
 
 async def main():
-    await dp.start_polling(bot)
+    try:
+        await dp.start_polling(bot)
+    except TelegramNetworkError as error:
+        logging.error(
+            "Telegram connection failed. TELEGRAM_API_BASE=%s, TG_FORCE_IPV4=%s, error=%s",
+            TELEGRAM_API_BASE,
+            TG_FORCE_IPV4,
+            error,
+        )
+        logging.error(
+            "If SSL errors persist, check local VPN/proxy/antivirus filtering or set TELEGRAM_API_BASE in .env to a reachable Bot API endpoint."
+        )
+        raise
 
 
 if __name__ == "__main__":
