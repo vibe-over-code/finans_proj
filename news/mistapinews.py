@@ -33,7 +33,7 @@ CHECK_INTERVAL_MINUTES = int(os.getenv("CHECK_INTERVAL_MINUTES", "10"))
 
 # ВАЖНО: Убедись, что в .env файл записано MKey=ваш_ключ
 MISTRAL_API_KEY = os.getenv("MKey") or os.getenv("MISTRAL_API_KEY")
-MISTRAL_MODEL = os.getenv("MISTRAL_MODEL", "mistral-large-latest")
+MISTRAL_MODEL = os.getenv("MISTRAL_MODEL", "mistral-medium-latest")
 
 client = Mistral(api_key=MISTRAL_API_KEY) if MISTRAL_API_KEY else None
 
