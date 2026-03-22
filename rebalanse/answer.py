@@ -8,7 +8,7 @@ class RebalancerAgent:
     def __init__(self):
         # Инициализация клиента Mistral
         # Убедись, что токен добавлен в переменные окружения: export MISTRAL_API_KEY="твой_ключ"
-        self.api_key = os.environ.get("MISTRAL_API_KEY")
+        self.api_key = os.environ.get("MKey")
         self.client = Mistral(api_key=self.api_key)
         self.model = "mistral-large-latest" # Можно использовать open-mixtral-8x22b для экономии
         print("[SYSTEM] Ребалансер инициализирован с Mistral SDK.")

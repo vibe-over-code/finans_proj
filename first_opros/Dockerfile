@@ -10,4 +10,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY mist_opros.py .
 
-CMD ["python", "mist_opros.py"]
+EXPOSE 8001
+
+CMD ["uvicorn", "mist_opros:app", "--host", "0.0.0.0", "--port", "8001"]

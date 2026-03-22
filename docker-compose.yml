@@ -37,6 +37,8 @@ services:
       PORTFOLIO_PROFILE_URL: http://portfolio-rebalancer:8000/api/client-profile
     depends_on:
       - portfolio-rebalancer
+    ports:
+      - "8001:8001"
 
   voice-broker:
     build:
