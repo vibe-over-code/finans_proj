@@ -1,5 +1,5 @@
 feedparser
 requests
 schedule
-mistralai
+mistralai==1.12.4
 python-dotenv

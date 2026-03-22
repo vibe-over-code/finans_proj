@@ -1,4 +1,4 @@
 aiogram
 httpx
-mistralai
+mistralai==1.12.4
 python-dotenv

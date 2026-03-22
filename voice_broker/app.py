@@ -7,7 +7,6 @@ from pathlib import Path
 
 import librosa
 import numpy as np
-import sounddevice as sd
 import soundfile as sf
 import torch
 from fastapi import FastAPI, File, UploadFile
