@@ -1,110 +1,180 @@
+import asyncio
+import json
 import os
-import queue
 import tempfile
-import threading
-import time
 from pathlib import Path
+from typing import Any
 
-import librosa
-import numpy as np
-import soundfile as sf
-import torch
-from fastapi import FastAPI, File, UploadFile
-from pydantic import BaseModel
-from transformers import AutoProcessor, Qwen2AudioForConditionalGeneration
+from dotenv import load_dotenv
+from fastapi import FastAPI, File, HTTPException, Response, UploadFile
+from gigachat import GigaChat
+from pydantic import BaseModel, Field
 
-# --- КОНФИГУРАЦИЯ ---
-MODEL_ID = "Qwen/Qwen2-Audio-7B-Instruct"
+load_dotenv()
 
-# Модель просто описывает звук текстом, не зная про JSON
-PROMPT_TEXT = "Describe the emotional state of the speaker and the tone of voice."
+VERIFY_SSL = os.getenv("GIGACHAT_VERIFY_SSL", "false").strip().lower() in {"1", "true", "yes"}
+MODEL_NAME = os.getenv("GIGACHAT_MODEL", "GigaChat-2-Pro")
+VOICE_TIMEOUT_SECONDS = float(os.getenv("VOICE_TIMEOUT_SECONDS", "45"))
 
-# --- СТАНДАРТНЫЙ JSON ДЛЯ ОТПРАВКИ ---
+VOICE_PROMPT = os.getenv(
+    "VOICE_PROMPT",
+    "You will receive an audio attachment.\n"
+    "Return ONLY valid JSON (no markdown, no extra text) with fields:\n"
+    "- transcript: string\n"
+    "- emotion: short label in English (e.g. anxious, calm, angry, excited)\n"
+    "- emotion_index: number from 0.0 to 1.0 (0 calm, 1 very intense)\n"
+    "- summary: one short sentence\n",
+)
+
+
+def normalize_credentials(raw_value: str | None) -> str | None:
+    if not raw_value:
+        return None
+    value = raw_value.strip().strip('"').strip("'")
+    if value.startswith("CLIENT_SECRET="):
+        value = value.split("=", 1)[1].strip()
+    return value or None
+
+
+GIGACHAT_CREDENTIALS = normalize_credentials(
+    os.getenv("CLIENT_SECRET") or os.getenv("GIGACHAT_CREDENTIALS") or os.getenv("MKEY")
+)
+
+
 class VoiceAnalysisResponse(BaseModel):
-    analysis: str
+    transcript: str
+    emotion: str
+    emotion_index: float = Field(ge=0.0, le=1.0)
+    summary: str
+    raw: str | None = None
 
-app = FastAPI()
 
-# --- ГЛОБАЛЬНЫЕ ОБЪЕКТЫ ---
-_processor = None
-_model = None
-_lock = threading.Lock()
+app = FastAPI(title="Voice Broker")
 
-def load_model():
-    global _processor, _model
-    with _lock:
-        if _processor is None:
-            _processor = AutoProcessor.from_pretrained(MODEL_ID)
-            _model = Qwen2AudioForConditionalGeneration.from_pretrained(
-                MODEL_ID, device_map="auto"
-            )
-    return _processor, _model
 
-# --- ЯДРО АНАЛИЗА (ТВОЙ РАБОЧИЙ ВАРИАНТ) ---
-def get_raw_analysis(audio_path: str | Path) -> str:
-    processor, model = load_model()
-    
-    # 1. Загрузка (16кГц как просит Qwen)
-    audio, _ = librosa.load(str(audio_path), sr=16000)
+def get_gigachat_client() -> GigaChat:
+    if not GIGACHAT_CREDENTIALS:
+        raise RuntimeError("CLIENT_SECRET not found in environment")
 
-    # 2. Формирование промпта (Официальный шаблон)
-    messages = [
-        {"role": "user", "content": [
-            {"type": "audio", "audio_url": str(audio_path)},
-            {"type": "text", "text": PROMPT_TEXT}
-        ]}
-    ]
+    return GigaChat(
+        credentials=GIGACHAT_CREDENTIALS,
+        verify_ssl_certs=VERIFY_SSL,
+        model=MODEL_NAME,
+    )
 
-    text = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=False)
-    inputs = processor(text=text, audios=audio, return_tensors="pt", padding=True).to(model.device)
 
-    # 3. Генерация (чистая строка)
-    with torch.no_grad():
-        generate_ids = model.generate(**inputs, max_new_tokens=256)
-    
-    # Отрезаем входной промпт, оставляем только ответ модели
-    generate_ids = generate_ids[:, inputs["input_ids"].size(1):]
-    response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-    
-    return response.strip()
-
-# --- API ---
-@app.post("/analyze", response_model=VoiceAnalysisResponse)
-async def api_analyze(file: UploadFile = File(...)):
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
-        tmp.write(await file.read())
-        t_path = Path(tmp.name)
-    
+def _try_parse_json(text: str) -> dict[str, Any] | None:
+    text = text.strip()
+    if not text:
+        return None
     try:
-        # Модель дает строку, а мы сами делаем из нее JSON
-        result_text = get_raw_analysis(t_path)
-        return VoiceAnalysisResponse(analysis=result_text)
-    finally:
-        t_path.unlink(missing_ok=True)
+        return json.loads(text)
+    except Exception:
+        return None
 
-# --- ТЕРМИНАЛ (ДЛЯ ТЕСТОВ) ---
-def run_cli():
-    print(f"Загрузка {MODEL_ID}...")
-    load_model()
-    
+
+def get_voice_json(audio_path: str | Path) -> VoiceAnalysisResponse:
+    path = Path(audio_path)
+    if not path.exists():
+        raise FileNotFoundError(f"Audio file not found: {path}")
+
+    with get_gigachat_client() as giga:
+        with open(path, "rb") as audio_file:
+            uploaded_file = giga.upload_file(audio_file)
+
+        response = giga.chat(
+            {
+                "model": MODEL_NAME,
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": VOICE_PROMPT,
+                        "attachments": [uploaded_file.id_],
+                    }
+                ],
+            }
+        )
+
+    if not response or not response.choices:
+        raise RuntimeError("GigaChat returned an empty response")
+
+    raw_text = str(response.choices[0].message.content or "").strip()
+    payload = _try_parse_json(raw_text)
+    if not payload:
+        return VoiceAnalysisResponse(
+            transcript="",
+            emotion="unknown",
+            emotion_index=0.0,
+            summary="Failed to parse JSON from model response.",
+            raw=raw_text,
+        )
+
+    emotion_index_raw = payload.get("emotion_index", 0.0)
+    try:
+        emotion_index = float(emotion_index_raw)
+    except Exception:
+        emotion_index = 0.0
+
+    return VoiceAnalysisResponse(
+        transcript=str(payload.get("transcript", "")),
+        emotion=str(payload.get("emotion", "")),
+        emotion_index=emotion_index,
+        summary=str(payload.get("summary", "")),
+        raw=raw_text,
+    )
+
+
+@app.get("/health")
+async def healthcheck() -> dict[str, str | float]:
+    return {"status": "ok", "model": MODEL_NAME, "timeout": VOICE_TIMEOUT_SECONDS}
+
+
+@app.get("/favicon.ico")
+async def favicon() -> Response:
+    return Response(status_code=204)
+
+
+@app.post("/analyze", response_model=VoiceAnalysisResponse)
+async def api_analyze(file: UploadFile = File(...)) -> VoiceAnalysisResponse:
+    suffix = Path(file.filename or "audio.wav").suffix or ".wav"
+    with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+        tmp.write(await file.read())
+        temp_path = Path(tmp.name)
+
+    try:
+        return await asyncio.wait_for(
+            asyncio.to_thread(get_voice_json, temp_path),
+            timeout=VOICE_TIMEOUT_SECONDS,
+        )
+    except asyncio.TimeoutError as error:
+        raise HTTPException(status_code=504, detail="Voice analysis timed out") from error
+    except Exception as error:
+        raise HTTPException(status_code=502, detail=str(error)) from error
+    finally:
+        temp_path.unlink(missing_ok=True)
+
+
+def run_cli() -> None:
+    print(f"Voice broker uses {MODEL_NAME}")
     while True:
-        path = input("\nВведите путь к файлу (или 'exit'): ").strip().strip('"')
-        if path.lower() == 'exit': break
-        if not os.path.exists(path): continue
-        
+        path = input("Path to audio file (or 'exit'): ").strip().strip('"')
+        if path.lower() == "exit":
+            return
+        if not path:
+            continue
+
         try:
-            raw_text = get_raw_analysis(path)
-            # Вывод стандартного JSON
-            final_json = VoiceAnalysisResponse(analysis=raw_text).model_dump_json(ensure_ascii=False)
-            print(f"\nГОТОВЫЙ JSON:\n{final_json}")
-        except Exception as e:
-            print(f"Ошибка: {e}")
+            result = get_voice_json(path)
+            print(result.model_dump_json(ensure_ascii=False))
+        except Exception as error:
+            print(f"Error: {error}")
+
 
 if __name__ == "__main__":
     import sys
-    # Если запуск с аргументом 'api', стартуем сервер, иначе терминал
+    import uvicorn
+
     if len(sys.argv) > 1 and sys.argv[1] == "api":
-        import uvicorn
-        uvicorn.run(app, host="0.0.0.0", port=8000)
+        uvicorn.run(app, host="0.0.0.0", port=8010)
     else:
         run_cli()

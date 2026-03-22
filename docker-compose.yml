@@ -35,8 +35,12 @@ services:
       - .env
     environment:
       PORTFOLIO_PROFILE_URL: http://portfolio-rebalancer:8000/api/client-profile
+      VOICE_SERVICE_URL: http://voice-broker:8010/analyze
+      GIGACHAT_MODEL: ${GIGACHAT_MODEL:-GigaChat-2-Pro}
+      GIGACHAT_VERIFY_SSL: ${GIGACHAT_VERIFY_SSL:-false}
     depends_on:
       - portfolio-rebalancer
+      - voice-broker
     ports:
       - "8001:8001"
 
@@ -48,11 +52,8 @@ services:
     env_file:
       - .env
     environment:
-      QWEN2_AUDIO_MODEL: ${QWEN2_AUDIO_MODEL:-Qwen/Qwen2-Audio-7B-Instruct}
-      VOICE_MAX_NEW_TOKENS: ${VOICE_MAX_NEW_TOKENS:-256}
-      VOICE_SAMPLE_RATE: ${VOICE_SAMPLE_RATE:-16000}
-      VOICE_MAX_SECONDS: ${VOICE_MAX_SECONDS:-30}
+      GIGACHAT_MODEL: ${GIGACHAT_MODEL:-GigaChat-2-Pro}
+      GIGACHAT_VERIFY_SSL: ${GIGACHAT_VERIFY_SSL:-false}
+      VOICE_PROMPT: ${VOICE_PROMPT:-Return valid JSON with transcript, emotion, emotion_index, summary.}
     ports:
       - "8010:8010"
-    gpus: all
-

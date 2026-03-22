@@ -1,8 +1,5 @@
 fastapi
-librosa
+gigachat>=0.1.39
 python-dotenv
 python-multipart
-sounddevice
-soundfile
-transformers
 uvicorn

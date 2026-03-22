@@ -1,5 +1,6 @@
 httpx
 fastapi
-mistralai==1.12.4
+gigachat>=0.1.39
 python-dotenv
 uvicorn
+python-multipart
