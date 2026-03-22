@@ -1,7 +1,6 @@
-fastapi==0.110.0
-uvicorn==0.27.1
-pydantic==2.6.1
-pydantic-settings==2.1.0
-gigachat==0.1.30
-python-dotenv==1.0.1
-requests==2.31.0
+fastapi
+uvicorn[standard]
+pydantic>=2.10.0
+pydantic-settings
+gigachat>=0.1.30
+python-dotenv
