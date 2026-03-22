@@ -4,6 +4,5 @@ python-dotenv
 python-multipart
 sounddevice
 soundfile
-torch
 transformers
 uvicorn

@@ -183,3 +183,13 @@ cython_debug/
 news/data/financial_news.json
 /news/data
 news/data/financial_news.json
+
+
+# Voice broker artifacts
+voice_broker/__pycache__/
+voice_broker/*.wav
+voice_broker/*.mp3
+voice_broker/*.m4a
+voice_broker/*.ogg
+voice_broker/*.flac
+voice_broker/.hf-cache/
