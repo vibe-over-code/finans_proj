@@ -1,153 +1,160 @@
-import os
+import asyncio
 import json
-from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import List, Dict, Any
+import os
+from typing import Dict, List
 from mistralai import Mistral
-from dotenv import load_dotenv
 
-load_dotenv()
+class RebalancerAgent:
+    def __init__(self):
+        # Инициализация клиента Mistral
+        # Убедись, что токен добавлен в переменные окружения: export MISTRAL_API_KEY="твой_ключ"
+        self.api_key = os.environ.get("MISTRAL_API_KEY")
+        self.client = Mistral(api_key=self.api_key)
+        self.model = "mistral-large-latest" # Можно использовать open-mixtral-8x22b для экономии
+        print("[SYSTEM] Ребалансер инициализирован с Mistral SDK.")
 
-app = FastAPI(title="Smart Advisor API")
+    def _calculate_deviations(self, current: Dict[str, float], target: Dict[str, float]) -> Dict[str, float]:
+        """Считает математическое отклонение текущего портфеля от целевого"""
+        deviations = {}
+        all_keys = set(current.keys()).union(set(target.keys()))
+        for key in all_keys:
+            c_val = float(current.get(key, 0))
+            t_val = float(target.get(key, 0))
+            deviations[key] = round(t_val - c_val, 2)
+        return deviations
 
-MISTRAL_API_KEY = os.getenv("MKey")
-MISTRAL_MODEL = os.getenv("MISTRAL_MODEL", "mistral-large-latest")
-client = Mistral(api_key=MISTRAL_API_KEY)
-CLIENT_FILE = "client_data.json"
-
-# --- СХЕМЫ ДАННЫХ ДЛЯ ПАРСЕРА ---
-class NewsItem(BaseModel):
-    title: str
-    link: str
-    summary: str
-    portfolio_risk_analysis: Dict[str, Any]
-
-class PortfolioCheckPayload(BaseModel):
-    timestamp: str
-    risk_categories: List[str]
-    news_items: List[NewsItem]
-
-
-class SurveyProfilePayload(BaseModel):
-    client_id: str | None = None
-    survey_result: Dict[str, Any]
-
-# --- ФУНКЦИЯ ЗАГРУЗКИ ПРОФИЛЯ ---
-def load_client_data():
-    if not os.path.exists(CLIENT_FILE):
-        return None
-    with open(CLIENT_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
-def save_client_data(data: Dict[str, Any]):
-    with open(CLIENT_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-# --- ПРОМПТ ДЛЯ MISTRAL ---
-ADVISOR_PROMPT = """Ты — персональный финансовый советник. 
-Проанализируй срочную новость, оцени разрыв между текущим и целевым портфелем клиента, и напиши сообщение для Telegram.
-
-ДАННЫЕ КЛИЕНТА:
-- Психология: {investor_type} (Устойчивость к панике: {emotion_index}/1.0, Аппетит к риску: {risk_index}/1.0)
-- ТЕКУЩИЙ портфель: {current_portfolio}
-- ЦЕЛЕВОЙ портфель: {target_portfolio}
-- Справка: {profile_summary}
-
-ВХОДЯЩАЯ НОВОСТЬ:
-- Заголовок: {news_title}
-- Суть риска: {news_summary}
-- Затронутые активы: {danger_cats}
-
-ИНСТРУКЦИЯ К ОТВЕТУ:
-1. Пиши как сообщение в Telegram (абзацы, немного эмодзи).
-2. Адаптируй тон под emotion_index (если он низкий — сначала успокой; если высокий — дай сухие факты).
-3. Объясни, как эта новость влияет на необходимость перехода от ТЕКУЩЕГО портфеля к ЦЕЛЕВОМУ. 
-4. Дай четкие действия (Action Plan): нужно ли сейчас докупать целевые активы, или лучше подождать из-за новости.
-5. Не задавай вопросов в конце сообщения.
-"""
-
-@app.get("/health")
-async def healthcheck():
-    return {"status": "ok"}
-
-
-@app.post("/api/client-profile")
-async def save_client_profile(payload: SurveyProfilePayload):
-    client_data = load_client_data() or {}
-    survey_result = payload.survey_result
-
-    if payload.client_id:
-        client_data["client_id"] = payload.client_id
-
-    for field in (
-        "goal",
-        "investor_type",
-        "risk_index",
-        "emotion_index",
-        "target_portfolio",
-        "recommended_portfolio",
-        "profile_summary",
-    ):
-        if field in survey_result:
-            client_data[field] = survey_result[field]
-
-    if "current_portfolio" in survey_result and survey_result["current_portfolio"]:
-        client_data["current_portfolio"] = survey_result["current_portfolio"]
-
-    save_client_data(client_data)
-    return {"status": "success", "message": "Client profile updated"}
-
-
-@app.post("/api/check_portfolio")
-async def process_news_and_advise(payload: PortfolioCheckPayload):
-    client_data = load_client_data()
-    if not client_data:
-        return {"status": "error", "message": "Файл client_data.json не найден"}
-
-    recommendations = []
-
-    for news in payload.news_items:
-        analysis = news.portfolio_risk_analysis
+    async def generate_advice(
+        self, 
+        user_id: str, 
+        test_data: dict, 
+        news_risk: dict, 
+        voice_state: dict,
+        app_opens_per_day: int,
+        recent_actions: List[str]
+    ) -> str:
+        """
+        Собирает финансовые, новостные и поведенческие данные,
+        отправляя итоговый контекст в Mistral для генерации ответа.
+        """
+        print(f"\n[API REB] Сбор данных для пользователя: {user_id}")
         
-        # Если парсер пометил новость как опасную
-        if analysis.get("has_portfolio_risk"):
-            
-            formatted_prompt = ADVISOR_PROMPT.format(
-                investor_type=client_data["investor_type"],
-                emotion_index=client_data["emotion_index"],
-                risk_index=client_data["risk_index"],
-                current_portfolio=json.dumps(client_data.get("current_portfolio", {}), ensure_ascii=False),
-                target_portfolio=json.dumps(client_data.get("target_portfolio", {}), ensure_ascii=False),
-                profile_summary=client_data["profile_summary"],
-                news_title=news.title,
-                news_summary=analysis.get("summary"),
-                danger_cats=", ".join(analysis.get("dangerous_categories", []))
-            )
-            
-            response = client.chat.complete(
-                model=MISTRAL_MODEL,
-                messages=[{"role": "user", "content": formatted_prompt}],
-                temperature=0.3
-            )
-            
-            advice_text = response.choices[0].message.content
-            
-            recommendations.append({
-                "client_id": client_data["client_id"],
-                "news_trigger": news.title,
-                "telegram_message": advice_text
-            })
+        current = test_data.get("current_portfolio", {})
+        target = test_data.get("target_portfolio", {})
+        
+        if not current:
+            return "У вас пока нет активов в портфеле. Давайте начнем с распределения средств согласно целевому плану."
 
-            # Здесь можно добавить логику прямой отправки в Telegram:
-            # await send_to_telegram(client_data["client_id"], advice_text)
+        # 1. Математика ребалансировки
+        deviations = self._calculate_deviations(current, target)
+        print(f"[REB MATH] Дельта портфеля: {deviations}")
 
-    return {
-        "status": "success", 
-        "alerts_generated": len(recommendations),
-        "data": recommendations
+        # 2. Формирование промпта для Mistral
+        prompt = f"""
+        Ты — эмпатичный ИИ-советник по инвестициям. Проанализируй данные и напиши короткое сообщение для клиента в чат.
+
+        [ФИНАНСОВЫЕ ДАННЫЕ]
+        - Цель клиента: {test_data.get('goal')}
+        - Профиль: {test_data.get('investor_type')}
+        - Текущие доли: {json.dumps(current, ensure_ascii=False)}
+        - Целевые доли: {json.dumps(target, ensure_ascii=False)}
+        - Необходимые изменения (%): {json.dumps(deviations, ensure_ascii=False)} (Положительное = докупить, Отрицательное = продать)
+
+        [РЫНОЧНЫЙ ФОН (Парсер)]
+        - Наличие риска: {news_risk.get('has_portfolio_risk')}
+        - Описание риска: {news_risk.get('summary', 'Всё спокойно')}
+        - Опасные активы: {json.dumps(news_risk.get('dangerous_categories', []), ensure_ascii=False)}
+
+        [СОСТОЯНИЕ И ПОВЕДЕНИЕ КЛИЕНТА]
+        - Анализ голоса: {voice_state.get('analysis', 'Голосовых сообщений нет')}
+        - Заходов в приложение за сегодня: {app_opens_per_day}
+        - Последние действия: {json.dumps(recent_actions, ensure_ascii=False)}
+
+        [ПРАВИЛА ОТВЕТА]
+        1. Оцени уровень стресса клиента. Если заходов в приложение много (>5) и действия нервные (например, частое чтение новостей, просмотр графиков падения) — начни с сильной психологической поддержки. Напомни про его долгосрочную цель.
+        2. Если актив нужно докупить, но по нему есть риск из парсера новостей — посоветуй отложить покупку.
+        3. Если актив сильно вырос, предложи зафиксировать прибыль.
+        4. Не используй JSON, markdown-таблицы или сложные термины. Форматируй текст легко для чтения.
+        """
+
+        # 3. Вызов Mistral API (или мок для локального тестирования без ключа)
+        if self.api_key == "mock_key_for_test":
+            print("[MISTRAL API MOCK] Имитация ответа от нейросети...")
+            await asyncio.sleep(2)
+            return self._mock_mistral_response(app_opens_per_day, recent_actions, news_risk)
+        
+        try:
+            # Асинхронный вызов реального API Mistral
+            chat_response = await self.client.chat.complete_async(
+                model=self.model,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ]
+            )
+            return chat_response.choices[0].message.content
+        except Exception as e:
+            return f"Произошла ошибка при обращении к финансовому советнику: {e}"
+
+    def _mock_mistral_response(self, app_opens, actions, news) -> str:
+        """Временная заглушка, пока не подключен реальный токен API"""
+        if app_opens > 10:
+            return (
+                "Я вижу, что вы сегодня заходили в приложение уже много раз, активно читая новости о ставке и проверяя графики акций. "
+                "Дышите глубже — турбулентность на рынке сейчас действительно высокая, и ваш тревожный голос это подтверждает. "
+                "Ваша главная цель — пенсия, и такие колебания на долгом горизонте нормальны. \n\n"
+                "Давайте посмотрим на план. Сейчас доля акций превышает целевую. "
+                "Учитывая новости о высоких рисках, я бы не советовал сейчас ничего докупать. "
+                "Лучшим решением будет продать часть акций (около 20%), чтобы зафиксировать прибыль, и перевести эти средства в консервативные облигации. "
+                "Это снизит риск и добавит стабильности вашему портфелю."
+            )
+        return "Всё идет по плану, портфель сбалансирован."
+
+# --- СИМУЛЯЦИЯ РАБОТЫ API ---
+async def simulate_api_requests():
+    print("=== ЗАПУСК СИМУЛЯЦИИ API РЕБАЛАНСЕРА (MISTRAL) ===\n")
+    rebalancer = RebalancerAgent()
+
+    db_test_data = {
+        "goal": "Накопить на пенсию с минимальным стрессом",
+        "investor_type": "Консерватор",
+        "target_portfolio": {"Облигации": 50, "Акции": 40, "Золото": 10},
+        "current_portfolio": {"Облигации": 30, "Акции": 60, "Золото": 10}
     }
 
+    parser_data = {
+        "has_portfolio_risk": True,
+        "summary": "Резкое повышение ключевой ставки, ожидается коррекция на рынке акций",
+        "dangerous_categories": ["Акции"],
+        "category_details": [{"category": "Акции", "risk_level": "high", "reason": "Ужесточение ДКП"}]
+    }
+
+    voice_data = {
+        "analysis": "The speaker's tone is extremely anxious, breathing is shallow, indicating high stress and uncertainty about the market."
+    }
+
+    # НОВЫЕ ДАННЫЕ: Имитация действий клиента
+    app_opens_today = 1
+    user_actions_log = [
+        "открыл_вкладку_портфель", 
+        "просмотр_графика_Акции_за_месяц" 
+    ]
+
+    # Вызов ребалансера
+    chat_response = await rebalancer.generate_advice(
+        user_id="user_101",
+        test_data=db_test_data,
+        news_risk=parser_data,
+        voice_state=voice_data,
+        app_opens_per_day=app_opens_today,
+        recent_actions=user_actions_log
+    )
+
+    print("\n[OUTPUT] ФИНАЛЬНОЕ СООБЩЕНИЕ ПОЛЬЗОВАТЕЛЮ В ЧАТ:\n")
+    print("-" * 60)
+    print(chat_response)
+    print("-" * 60)
+
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    asyncio.run(simulate_api_requests())
