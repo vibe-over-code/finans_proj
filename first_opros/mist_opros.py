@@ -1,552 +1,293 @@
-import json
-import logging
 import os
-import re
 import uuid
-from typing import Any
+import requests
+import urllib3
+from flask import Flask, request, jsonify, render_template_string
 
-import httpx
-from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import HTMLResponse
-from mistralai import Mistral
-from pydantic import BaseModel
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-logging.basicConfig(level=logging.INFO)
-load_dotenv()
+# --- НАСТРОЙКИ ---
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+VERIFY_SSL = False
+AUTH_URL = "https://ngw.devices.sberbank.ru:9443/api/v2/oauth"
+GIGA_URL = "https://gigachat.devices.sberbank.ru/api/v1/chat/completions"
+FILE_URL = "https://gigachat.devices.sberbank.ru/api/v1/files"
 
-MISTRAL_API_KEY = os.getenv("MKey")
-MISTRAL_MODEL = os.getenv("MISTRAL_MODEL", "mistral-large-latest")
-PORTFOLIO_PROFILE_URL = os.getenv(
-    "PORTFOLIO_PROFILE_URL",
-    "http://localhost:8000/api/client-profile",
-)
+app = Flask(__name__)
+chat_history = []
 
-client = Mistral(api_key=MISTRAL_API_KEY)
-app = FastAPI(title="Survey Web UI")
-
-
-class StartSessionResponse(BaseModel):
-    session_id: str
-    message: str
-
-
-class ChatRequest(BaseModel):
-    session_id: str
-    message: str
-
-
-class ChatResponse(BaseModel):
-    message: str
-    finished: bool
-    profile: dict[str, Any] | None = None
-
-
-class SessionResetRequest(BaseModel):
-    session_id: str
-
-
+# Твой промпт без изменений
 SYSTEM_PROMPT = """
-Ты проводишь короткое финансовое интервью и должен получить данные для сервиса ребалансировки портфеля.
+Ты - инвестиционный профилировщик и финансовый психолог. Твоя задача - через естественный диалог оценить эмоциональность клиента, его отношение к риску, желания, ограничения и реальные возможности, а затем на этой основе сформировать целевой портфель. Если у клиента уже есть вложения, ты должен также оценить текущий портфель и его соответствие целям и характеру клиента.
 
-Главная цель интервью:
-1. Сначала обязательно выясни главную инвестиционную цель пользователя.
-2. На основе цели, горизонта, допустимой просадки и отношения к риску определи целевой портфель.
-3. Отдельно выясни, есть ли у пользователя уже текущий портфель.
-4. Если текущий портфель есть и пользователь описал его достаточно понятно, оформи current_portfolio как JSON-объект.
-5. Если текущего портфеля нет или данных недостаточно, не добавляй поле current_portfolio в финальный JSON вообще.
+Ты ведешь спокойный, уважительный, живой разговор. Твоя цель - понять человека, а не провести формальный тест.
 
-Правила диалога:
+### Главные правила
 1. Задавай только один вопрос за раз.
-2. Все вопросы открытые, без вариантов ответа.
-3. Первый вопрос должен быть именно про цель.
-4. Если пользователь пишет слишком кратко, мягко проси уточнить.
-5. Не упоминай JSON, API, схему данных или внутренние поля.
-6. Веди диалог кратко, по делу, без длинных вступлений.
-7. Когда данных достаточно, заверши диалог.
+2. Первый вопрос всегда должен быть про цель инвестирования.
+3. Никогда не предлагай варианты ответов, шкалы, тестовые меню, ответы в формате А/Б/В или перечисления "что вам ближе".
+4. Все вопросы должны быть открытыми, чтобы клиент отвечал своими словами.
+5. Не задавай личные вопросы: не спрашивай ФИО, возраст, адрес, место работы, семейное положение, точный доход, точный размер капитала и другие персональные данные.
+6. Можно мягко выяснять возможности клиента без вторжения в личное: инвестиционный горизонт, нужна ли ликвидность, есть ли запас прочности, возможны ли регулярные пополнения, насколько допустимы временные просадки, насколько критично быстро вернуть деньги.
+7. Если ответ поверхностный, задай один уточняющий открытый вопрос без подсказок и вариантов.
+8. Не дави, не оценивай клиента и не используй канцелярский тон.
 
-Что нужно собрать:
-- goal: формулировка цели пользователя
-- investor_type: название типа инвестора
-- risk_index: число от 0.0 до 1.0
-- emotion_index: число от 0.0 до 1.0
-- target_portfolio: JSON-объект с распределением по классам активов в процентах
-- current_portfolio: JSON-объект с текущим распределением по классам активов в процентах, только если данные есть
-- profile_summary: краткий портрет подхода к принятию решений
+### Особый приоритет: эмоции и голос
+1. Главный скрытый параметр профилирования - эмоциональность клиента.
+2. Если клиент пишет после голосового сообщения или приходит расшифровка устной речи, уделяй максимум внимания эмоциональным маркерам.
+3. Оценивай тревожность, импульсивность, страх потерь, эйфорию, спешку, неуверенность, внутренние противоречия, FOMO, склонность к панике и внушаемость.
+4. Если доступны только слова из расшифровки без аудио, все равно оценивай эмоциональность по структуре речи: паузы, повторы, обрывки, самопоправки, резкие формулировки, давление срочности, страх или перевозбуждение.
+5. Если признаков голоса мало, делай осторожную оценку и учитывай пониженную уверенность, но не игнорируй эмоциональный фактор.
 
-Требования к портфелям:
-1. target_portfolio обязателен.
-2. target_portfolio и current_portfolio должны быть JSON-объектами, например:
-   {
-     "Облигации": "50%",
-     "Акции": "40%",
-     "Золото": "10%"
-   }
-3. Не используй массивы, только объект "класс актива" -> "доля%".
-4. Если current_portfolio неизвестен, не пиши ключ current_portfolio вообще.
+### Что нужно понять
+1. Зачем клиенту инвестиции и какого результата он хочет.
+2. На каком горизонте этот результат нужен.
+3. Что для него важнее: сохранность, стабильность, рост, высокий потенциал доходности, денежный поток или гибкость доступа к деньгам.
+4. Как он переживает просадки, неопределенность и ожидание.
+5. Есть ли инвестиционный опыт и как клиент реагировал на убытки, волатильность и резкие движения рынка.
+6. Может ли он дисциплинированно держать стратегию длительное время.
+7. Есть ли текущий портфель и насколько он подходит под цели, риск и эмоциональную устойчивость клиента.
 
-Маркеры:
-- Во время интервью добавляй [STATUS: COLLECTING]
-- В финальном сообщении добавляй [STATUS: FINISHED]
+### Как оценивать
+Сформируй внутреннюю оценку:
+- emotion_index от 0.0 до 1.0: эмоциональность, тревожность, импульсивность, чувствительность к просадкам.
+- risk_index от 0.0 до 1.0: готовность к риску и волатильности ради доходности.
+- capacity_index от 0.0 до 1.0: способность выдерживать долгий горизонт, временные убытки и следовать стратегии.
 
-Финал:
-Когда данных достаточно, верни короткое завершение и затем JSON в fenced block:
+Разделяй:
+- желание риска: клиент хочет высокую доходность;
+- переносимость риска: клиент выдержит просадку эмоционально;
+- возможность риска: клиент реально может позволить себе долгий горизонт и не забирать деньги в неподходящий момент.
 
-```json
+### Если есть текущий портфель
+Если клиент сам упомянул активы или стало понятно, что портфель уже есть, мягко попроси описать его простыми словами. После этого оцени:
+- соответствует ли он цели;
+- нет ли перекоса по риску;
+- нет ли конфликта между ожиданиями клиента и его эмоциональной устойчивостью;
+- что стоит сохранить, сократить, упростить или изменить.
+
+### Формат общения
+Пока информации недостаточно:
+- задай один следующий открытый вопрос;
+- в конце сообщения добавляй [STATUS: COLLECTING].
+
+Когда информации достаточно:
+- кратко подведи итог;
+- объясни тип инвестора и причины;
+- дай оценку текущему портфелю, если он был описан;
+- предложи целевой портфель;
+- добавь [STATUS: FINISHED];
+- затем выведи итоговый JSON в блоке кода.
+
+### Структура итогового JSON
 {
-  "goal": "формулировка цели",
-  "investor_type": "тип инвестора",
-  "risk_index": 0.0,
+  "goal": "цель клиента своими словами",
+  "investor_type": "Консервативный | Умеренный | Агрессивный",
   "emotion_index": 0.0,
+  "risk_index": 0.0,
+  "capacity_index": 0.0,
+  "voice_emotion_assessment": "краткая оценка эмоциональности по речи/голосу или пометка, что доступна только текстовая расшифровка",
+  "wants": ["ключевые желания клиента"],
+  "constraints": ["ключевые ограничения и условия"],
+  "current_portfolio": "если есть - краткое описание или JSON",
+  "current_portfolio_assessment": "если есть - краткая оценка",
   "target_portfolio": {
-    "Облигации": "50%",
-    "Акции": "40%",
-    "Золото": "10%"
+    "Акции": "0-100%",
+    "Облигации": "0-100%",
+    "Денежные инструменты": "0-100%",
+    "Альтернативные/прочие": "0-100%"
   },
-  "profile_summary": "краткий портрет"
+  "profile_summary": "краткий психологический и инвестиционный портрет клиента"
 }
-```
-
-Если current_portfolio известен, добавь его в этот JSON.
 """
 
+def get_token():
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": f"Basic {CLIENT_SECRET}",
+        "RqUID": str(uuid.uuid4()),
+    }
+    res = requests.post(AUTH_URL, headers=headers, data={"scope": "GIGACHAT_API_PERS"}, verify=VERIFY_SSL)
+    return res.json().get("access_token")
 
-INDEX_HTML = """<!DOCTYPE html>
+def upload_file(file_bytes, token):
+    """Загрузка файла. Мы принудительно называем его .wav, так как Сбер это любит."""
+    headers = {"Authorization": f"Bearer {token}"}
+    files = {"file": ("voice.wav", file_bytes, "audio/wav")}
+    res = requests.post(FILE_URL, headers=headers, files=files, data={"purpose": "general"}, verify=VERIFY_SSL)
+    
+    if res.status_code != 200:
+        print(f"Ошибка загрузки файла: {res.text}")
+        return None
+    return res.json().get("id")
+
+def ask_giga(text_content, file_id=None):
+    global chat_history
+    token = get_token()
+
+    if not chat_history:
+        chat_history.append({"role": "system", "content": SYSTEM_PROMPT})
+
+    # Формируем сообщение согласно актуальной документации GigaChat-2-Pro
+    message = {
+        "role": "user",
+        "content": text_content
+    }
+    if file_id:
+        # В GigaChat файлы передаются в списке attachments
+        message["attachments"] = [file_id]
+
+    chat_history.append(message)
+
+    payload = {
+        "model": "GigaChat-2-Pro",
+        "messages": chat_history,
+        "temperature": 0.6,
+        "max_tokens": 1024,
+    }
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {token}",
+    }
+
+    try:
+        res = requests.post(GIGA_URL, headers=headers, json=payload, verify=VERIFY_SSL)
+        if res.status_code != 200:
+            print(f"Детали ошибки API: {res.text}")
+            return f"Ошибка API {res.status_code}"
+            
+        content = res.json()["choices"][0]["message"]["content"]
+        chat_history.append({"role": "assistant", "content": content})
+        return content
+    except Exception as e:
+        return f"Критическая ошибка: {str(e)}"
+    
+
+
+@app.route("/")
+def index():
+    return render_template_string(HTML_PAGE)
+
+@app.route("/ask_text", methods=["POST"])
+def ask_text():
+    user_msg = request.json.get("message")
+    return jsonify({"reply": ask_giga(user_msg)})
+
+@app.route("/upload_voice", methods=["POST"])
+def upload_voice():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file"}), 400
+    
+    token = get_token()
+    # Читаем данные. Браузер пришлет webm/ogg, но мы скажем Сберу, что это wav.
+    # Большинство современных API умеют определять кодек сами, если расширение им нравится.
+    file_id = upload_file(request.files['file'].read(), token)
+    
+    if not file_id:
+        return jsonify({"reply": "Извините, не удалось обработать голосовое сообщение. Попробуйте еще раз или напишите текстом."})
+
+    # Важно: текст должен быть, иначе API может вернуть ошибку
+    reply = ask_giga("Проанализируй мои эмоции в этом голосовом сообщении и ответь на вопросы профайлинга.", file_id)
+    return jsonify({"reply": reply})
+
+HTML_PAGE = """
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Финансовый опросник</title>
-  <style>
-    :root {
-      --bg: #f4efe6;
-      --panel: rgba(255, 250, 242, 0.92);
-      --text: #2f241d;
-      --muted: #6f6258;
-      --accent: #0f766e;
-      --accent-2: #c2410c;
-      --border: rgba(47, 36, 29, 0.12);
-      --user: #e7f7f4;
-      --bot: #fff8ef;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(194, 65, 12, 0.12), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(15, 118, 110, 0.16), transparent 35%),
-        linear-gradient(135deg, #efe4d2 0%, #f7f2ea 50%, #e7edea 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .shell {
-      width: min(920px, 100%);
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 24px 70px rgba(49, 38, 29, 0.15);
-      overflow: hidden;
-    }
-
-    .hero {
-      padding: 28px 28px 18px;
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(135deg, rgba(255,255,255,0.45), rgba(255,255,255,0.18));
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.05;
-      font-weight: 700;
-    }
-
-    .subtitle {
-      margin: 0;
-      color: var(--muted);
-      max-width: 54ch;
-      font-size: 17px;
-      line-height: 1.5;
-    }
-
-    .toolbar {
-      display: flex;
-      gap: 12px;
-      padding: 18px 28px 0;
-      flex-wrap: wrap;
-    }
-
-    button {
-      border: 0;
-      border-radius: 999px;
-      padding: 12px 18px;
-      font: inherit;
-      cursor: pointer;
-      transition: transform 120ms ease, opacity 120ms ease, box-shadow 120ms ease;
-    }
-
-    button:hover { transform: translateY(-1px); }
-    button:disabled { opacity: 0.6; cursor: wait; transform: none; }
-
-    .primary {
-      background: var(--accent);
-      color: white;
-      box-shadow: 0 10px 24px rgba(15, 118, 110, 0.25);
-    }
-
-    .secondary {
-      background: transparent;
-      color: var(--accent-2);
-      border: 1px solid rgba(194, 65, 12, 0.24);
-    }
-
-    .chat {
-      padding: 18px 28px;
-      height: 54vh;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .bubble {
-      max-width: min(720px, 92%);
-      padding: 14px 16px;
-      border-radius: 18px;
-      line-height: 1.5;
-      white-space: pre-wrap;
-      animation: rise 180ms ease;
-      border: 1px solid var(--border);
-    }
-
-    .bot { align-self: flex-start; background: var(--bot); }
-    .user { align-self: flex-end; background: var(--user); }
-    .system { align-self: center; background: rgba(47, 36, 29, 0.06); color: var(--muted); }
-
-    .composer {
-      padding: 0 28px 28px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 84px;
-      resize: vertical;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      padding: 16px 18px;
-      font: inherit;
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.72);
-    }
-
-    .status {
-      padding: 0 28px 22px;
-      color: var(--muted);
-      font-size: 14px;
-      min-height: 22px;
-    }
-
-    .report {
-      margin: 0 28px 28px;
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid var(--border);
-      display: none;
-      white-space: pre-wrap;
-      line-height: 1.5;
-    }
-
-    .report.visible { display: block; }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 720px) {
-      .composer { grid-template-columns: 1fr; }
-      .chat { height: 50vh; }
-      .bubble { max-width: 100%; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Инвест-Профайлер</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f4f7f6; display: flex; justify-content: center; padding: 20px; }
+        #chat-container { width: 100%; max-width: 600px; background: white; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 80vh; }
+        #chat-box { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+        .msg { padding: 12px 16px; border-radius: 15px; max-width: 85%; font-size: 15px; }
+        .user { background: #007bff; color: white; align-self: flex-end; }
+        .bot { background: #f1f0f0; color: #333; align-self: flex-start; }
+        .controls { padding: 20px; border-top: 1px solid #eee; display: flex; gap: 10px; }
+        input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 25px; outline: none; }
+        #rec-btn { background: #28a745; color: white; border: none; border-radius: 25px; padding: 0 20px; cursor: pointer; }
+        #rec-btn.recording { background: #dc3545; animation: pulse 1s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+        pre { background: #272822; color: #f8f8f2; padding: 10px; border-radius: 8px; font-size: 12px; overflow-x: auto; }
+    </style>
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <h1>Локальный опросник инвестора</h1>
-      <p class="subtitle">Интервью проходит прямо в браузере и собирает профиль для сервиса ребалансировки без Telegram.</p>
-    </section>
-
-    <div class="toolbar">
-      <button id="startBtn" class="primary">Начать опрос</button>
-      <button id="resetBtn" class="secondary">Сбросить</button>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div class="controls">
+            <button id="rec-btn">🎤 Голос</button>
+            <input type="text" id="text-input" placeholder="Ваш ответ...">
+            <button onclick="sendText()" style="background:#007bff; color:white; border:none; border-radius:25px; padding:0 20px; cursor:pointer;">➤</button>
+        </div>
     </div>
 
-    <section id="chat" class="chat">
-      <div class="bubble system">Нажмите «Начать опрос», чтобы открыть диалог.</div>
-    </section>
+    <script>
+        let mediaRecorder;
+        let audioChunks = [];
+        const chatBox = document.getElementById('chat-box');
+        const recBtn = document.getElementById('rec-btn');
 
-    <form id="chatForm" class="composer">
-      <textarea id="messageInput" placeholder="Напишите ответ на вопрос..." disabled></textarea>
-      <button id="sendBtn" type="submit" class="primary" disabled>Отправить</button>
-    </form>
+        recBtn.onclick = async () => {
+            if (mediaRecorder && mediaRecorder.state === "recording") {
+                mediaRecorder.stop();
+                recBtn.classList.remove('recording');
+                recBtn.innerText = "🎤 Голос";
+            } else {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    // Используем стандартный контейнер. Если Сбер продолжит ругаться, 
+                    // придется добавить библиотеку для конвертации в wav на лету.
+                    mediaRecorder = new MediaRecorder(stream);
+                    audioChunks = [];
+                    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+                    mediaRecorder.onstop = () => {
+                        const blob = new Blob(audioChunks, { type: 'audio/wav' });
+                        addMessage("🎤 Голосовое сообщение (анализ...)", 'user');
+                        uploadVoice(blob);
+                    };
+                    mediaRecorder.start();
+                    recBtn.classList.add('recording');
+                    recBtn.innerText = "🛑 Стоп";
+                } catch (e) { alert("Микрофон не доступен"); }
+            }
+        };
 
-    <div id="status" class="status"></div>
-    <pre id="report" class="report"></pre>
-  </main>
+        async function uploadVoice(blob) {
+            const fd = new FormData();
+            fd.append('file', blob);
+            const res = await fetch('/upload_voice', { method: 'POST', body: fd });
+            const data = await res.json();
+            addMessage(data.reply, 'bot');
+        }
 
-  <script>
-    const chat = document.getElementById("chat");
-    const report = document.getElementById("report");
-    const statusNode = document.getElementById("status");
-    const startBtn = document.getElementById("startBtn");
-    const resetBtn = document.getElementById("resetBtn");
-    const sendBtn = document.getElementById("sendBtn");
-    const chatForm = document.getElementById("chatForm");
-    const messageInput = document.getElementById("messageInput");
+        async function sendText() {
+            const input = document.getElementById('text-input');
+            const val = input.value.trim();
+            if (!val) return;
+            addMessage(val, 'user');
+            input.value = '';
+            const res = await fetch('/ask_text', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({message: val})
+            });
+            const data = await res.json();
+            addMessage(data.reply, 'bot');
+        }
 
-    let sessionId = null;
-    let finished = false;
+        function addMessage(text, side) {
+            const div = document.createElement('div');
+            div.className = `msg ${side}`;
+            div.innerHTML = text.replace(/```json([\\s\\S]*?)```/g, '<pre>$1</pre>');
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
 
-    function addBubble(text, kind) {
-      const node = document.createElement("div");
-      node.className = `bubble ${kind}`;
-      node.textContent = text;
-      chat.appendChild(node);
-      chat.scrollTop = chat.scrollHeight;
-    }
-
-    function setBusy(value, text = "") {
-      startBtn.disabled = value;
-      resetBtn.disabled = value && !sessionId;
-      sendBtn.disabled = value || !sessionId || finished;
-      messageInput.disabled = value || !sessionId || finished;
-      statusNode.textContent = text;
-    }
-
-    function renderReport(profile) {
-      if (!profile) {
-        report.classList.remove("visible");
-        report.textContent = "";
-        return;
-      }
-
-      const lines = [
-        "Ваш инвестиционный паспорт",
-        "",
-        `Цель: ${profile.goal ?? ""}`,
-        `Тип: ${profile.investor_type ?? ""}`,
-        `Индекс риска: ${profile.risk_index ?? ""}`,
-        `Эмоциональная устойчивость: ${profile.emotion_index ?? ""}`,
-        "Целевой портфель:",
-        JSON.stringify(profile.target_portfolio ?? {}, null, 2),
-      ];
-
-      if (profile.current_portfolio) {
-        lines.push("", "Текущий портфель:", JSON.stringify(profile.current_portfolio, null, 2));
-      }
-
-      lines.push("", "Профиль:", profile.profile_summary ?? "");
-      report.textContent = lines.join("\\n");
-      report.classList.add("visible");
-    }
-
-    async function startSurvey() {
-      setBusy(true, "Запускаю интервью...");
-      report.classList.remove("visible");
-      report.textContent = "";
-      finished = false;
-
-      try {
-        const response = await fetch("/api/session/start", { method: "POST" });
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.detail || "Не удалось начать опрос");
-
-        sessionId = data.session_id;
-        chat.innerHTML = "";
-        addBubble(data.message, "bot");
-        setBusy(false, "Опрос активен");
-        messageInput.focus();
-      } catch (error) {
-        setBusy(false, String(error));
-      }
-    }
-
-    async function resetSurvey() {
-      if (!sessionId) {
-        chat.innerHTML = "";
-        addBubble("Нажмите «Начать опрос», чтобы открыть диалог.", "system");
-        renderReport(null);
-        finished = false;
-        setBusy(false, "");
-        return;
-      }
-
-      setBusy(true, "Сбрасываю сессию...");
-      try {
-        await fetch("/api/session/reset", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ session_id: sessionId }),
-        });
-      } finally {
-        sessionId = null;
-        finished = false;
-        chat.innerHTML = "";
-        addBubble("Нажмите «Начать опрос», чтобы открыть диалог.", "system");
-        renderReport(null);
-        messageInput.value = "";
-        setBusy(false, "");
-      }
-    }
-
-    async function sendMessage(event) {
-      event.preventDefault();
-      const message = messageInput.value.trim();
-      if (!message || !sessionId || finished) return;
-
-      addBubble(message, "user");
-      messageInput.value = "";
-      setBusy(true, "Модель отвечает...");
-
-      try {
-        const response = await fetch("/api/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ session_id: sessionId, message }),
-        });
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.detail || "Не удалось обработать сообщение");
-
-        addBubble(data.message, "bot");
-        finished = Boolean(data.finished);
-        renderReport(data.profile || null);
-        setBusy(false, finished ? "Опрос завершён" : "Опрос активен");
-      } catch (error) {
-        addBubble(`Ошибка: ${error}`, "system");
-        setBusy(false, "Ошибка при обработке сообщения");
-      }
-    }
-
-    startBtn.addEventListener("click", startSurvey);
-    resetBtn.addEventListener("click", resetSurvey);
-    chatForm.addEventListener("submit", sendMessage);
-  </script>
+        window.onload = () => addMessage("Здравствуйте! Я ваш финансовый ассистент. Расскажите, какая цель ваших инвестиций?", 'bot');
+    </script>
 </body>
 </html>
 """
 
-
-sessions: dict[str, list[dict[str, str]]] = {}
-
-
-async def send_profile_to_portfolio_service(profile: dict, session_id: str):
-    payload = {
-        "client_id": f"web_{session_id}",
-        "survey_result": profile,
-    }
-
-    try:
-        async with httpx.AsyncClient(timeout=10.0) as transport:
-            response = await transport.post(PORTFOLIO_PROFILE_URL, json=payload)
-            response.raise_for_status()
-        logging.info("Survey profile sent to portfolio service")
-    except Exception as error:
-        logging.exception("Failed to send survey profile to portfolio service: %s", error)
-
-
-def extract_final_payload(ai_text: str) -> dict | None:
-    match = re.search(r"```json\s*(.*?)\s*```", ai_text, re.DOTALL)
-    if not match:
-        return None
-    return json.loads(match.group(1).strip(), strict=False)
-
-
-def clean_ai_text(ai_text: str) -> str:
-    cleaned = ai_text.replace("[STATUS: COLLECTING]", "")
-    cleaned = cleaned.replace("[STATUS: FINISHED]", "")
-    cleaned = re.sub(r"```json\s*.*?\s*```", "", cleaned, flags=re.DOTALL)
-    return cleaned.strip()
-
-
-def create_initial_history() -> list[dict[str, str]]:
-    return [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": "Привет. Начни интервью."},
-    ]
-
-
-def complete_chat(messages: list[dict[str, str]]) -> str:
-    response = client.chat.complete(model=MISTRAL_MODEL, messages=messages)
-    return str(response.choices[0].message.content)
-
-
-@app.get("/", response_class=HTMLResponse)
-async def index() -> HTMLResponse:
-    return HTMLResponse(INDEX_HTML)
-
-
-@app.post("/api/session/start", response_model=StartSessionResponse)
-async def start_session() -> StartSessionResponse:
-    history = create_initial_history()
-    try:
-        ai_text = complete_chat(history)
-    except Exception as error:
-        raise HTTPException(status_code=502, detail=f"Mistral error: {error}") from error
-
-    history.append({"role": "assistant", "content": ai_text})
-    session_id = uuid.uuid4().hex
-    sessions[session_id] = history
-    return StartSessionResponse(session_id=session_id, message=clean_ai_text(ai_text))
-
-
-@app.post("/api/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest) -> ChatResponse:
-    history = sessions.get(request.session_id)
-    if history is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Session not found. Start a new survey.",
-        )
-
-    history.append({"role": "user", "content": request.message})
-
-    try:
-        ai_text = complete_chat(history)
-    except Exception as error:
-        history.pop()
-        raise HTTPException(status_code=502, detail=f"Mistral error: {error}") from error
-
-    history.append({"role": "assistant", "content": ai_text})
-    finished = "[STATUS: FINISHED]" in ai_text
-
-    profile = None
-    if finished:
-        profile = extract_final_payload(ai_text)
-        if profile:
-            await send_profile_to_portfolio_service(profile, request.session_id)
-
-    return ChatResponse(
-        message=clean_ai_text(ai_text),
-        finished=finished,
-        profile=profile,
-    )
-
-
-@app.post("/api/session/reset")
-async def reset_session(request: SessionResetRequest) -> dict[str, str]:
-    sessions.pop(request.session_id, None)
-    return {"status": "ok"}
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
