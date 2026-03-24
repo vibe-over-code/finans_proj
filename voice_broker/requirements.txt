@@ -1,8 +1,6 @@
 fastapi
-librosa
+httpx
 python-dotenv
 python-multipart
-sounddevice
-soundfile
-transformers
 uvicorn
+urllib3

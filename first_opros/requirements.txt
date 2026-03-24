@@ -1,5 +1,6 @@
 httpx
 fastapi
-mistralai==1.12.4
 python-dotenv
+python-multipart
 uvicorn
+urllib3

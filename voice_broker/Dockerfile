@@ -1,21 +1,26 @@
-﻿FROM python:3.10-slim
+FROM python:3.11-slim
 
 WORKDIR /app
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV PIP_NO_CACHE_DIR=1
+ARG PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+ARG PIP_TRUSTED_HOST=pypi.tuna.tsinghua.edu.cn
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_DEFAULT_TIMEOUT=120 \
+    PIP_RETRIES=10 \
+    PIP_INDEX_URL=${PIP_INDEX_URL} \
+    PIP_TRUSTED_HOST=${PIP_TRUSTED_HOST}
+
+RUN apt-get update -o Acquire::Retries=5 && apt-get install -y --no-install-recommends \
     ffmpeg \
-    libsndfile1 \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-
-RUN pip install typing_extensions==4.15.0 && \
-    pip install https://download.pytorch.org/whl/cu128/torch-2.10.0%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl && \
-    pip install -r requirements.txt
+RUN python -m pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
 
 COPY app.py .
 
