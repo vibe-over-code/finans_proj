@@ -551,7 +551,7 @@ button { border:none; border-radius:999px; padding:12px 16px; cursor:pointer; fo
   <section class="panel chat">
     <div class="head">
       <h1>Опросник инвестора</h1>
-      <p class="sub">Сервис опросника только ведёт диалог. Голос уходит в отдельный broker и возвращается как расшифровка плюс эмоции.</p>
+      <p class="sub">Опрос инвестора с анализом эмоций и рисковости</p>
     </div>
     <div id="messages" class="messages"></div>
     <div id="voiceMeta" class="meta"></div>
@@ -567,7 +567,7 @@ button { border:none; border-radius:999px; padding:12px 16px; cursor:pointer; fo
       <div class="row">
         <div>
           <h2>Новости рынка</h2>
-          <p class="sub">Лента обновляется только пока у кого-то открыт опросник.</p>
+          <p class="sub">Парсинг новостей с оценкой сфер на которые они влияют.</p>
         </div>
         <button id="refreshBtn" class="refresh" type="button">Обновить</button>
       </div>
