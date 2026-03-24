@@ -43,6 +43,7 @@ NEWS_SERVICE_PORT = int(os.getenv("NEWS_SERVICE_PORT", "8002"))
 
 MISTRAL_API_KEY = os.getenv("MKey") or os.getenv("MISTRAL_API_KEY")
 MISTRAL_MODEL = os.getenv("MISTRAL_MODEL", "mistral-medium-latest")
+MISTRAL_REQUEST_DELAY_SECONDS = float(os.getenv("MISTRAL_REQUEST_DELAY_SECONDS", "2"))
 RSS_FEEDS = [
     feed.strip()
     for feed in os.getenv("RSS_FEEDS", ",".join(DEFAULT_RSS_FEEDS)).split(",")
@@ -148,6 +149,8 @@ def analyze_news_with_mistral(news_item: dict[str, Any]) -> dict[str, Any]:
     ]
 
     try:
+        if MISTRAL_REQUEST_DELAY_SECONDS > 0:
+            time.sleep(MISTRAL_REQUEST_DELAY_SECONDS)
         response = client.chat.complete(model=MISTRAL_MODEL, messages=messages)
         raw_content = response.choices[0].message.content
         parsed = json.loads(extract_json_payload(raw_content))
