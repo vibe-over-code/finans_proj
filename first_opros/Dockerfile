@@ -12,12 +12,15 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_DEFAULT_TIMEOUT=120 \
     PIP_RETRIES=10 \
     PIP_INDEX_URL=${PIP_INDEX_URL} \
-    PIP_TRUSTED_HOST=${PIP_TRUSTED_HOST}
+    PIP_TRUSTED_HOST=${PIP_TRUSTED_HOST} \
+    PIP_EXTRA_INDEX_URL=https://pypi.org/simple
 
 COPY requirements.txt .
-RUN python -m pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
+RUN python -m pip install --upgrade pip setuptools wheel && \
+    pip install -r requirements.txt && \
+    pip install --no-deps https://github.com/Tinkoff/invest-python/archive/refs/heads/main.zip
 
-COPY mist_opros.py .
+COPY . .
 
 EXPOSE 8001
 

@@ -2,5 +2,10 @@ httpx
 fastapi
 python-dotenv
 python-multipart
+cachetools>=5.2.0
+deprecation>=2.1.0
+grpcio>=1.39.0
+protobuf>=4.21.6,<5.0.0
+python-dateutil>=2.8.2
 uvicorn
 urllib3

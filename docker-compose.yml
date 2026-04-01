@@ -45,11 +45,24 @@ services:
       VOICE_BROKER_URL: http://voice-broker:8010/analyze
       SESSION_TTL_SECONDS: 180
       GIGACHAT_MODEL: GigaChat-2-Pro
+      TINKOFF_SANDBOX_ENABLED: ${TINKOFF_SANDBOX_ENABLED:-true}
+      TINKOFF_SANDBOX_TOKEN: ${TINKOFF_SANDBOX_TOKEN:-}
+      TINKOFF_SANDBOX_ACCOUNT_ID: ${TINKOFF_SANDBOX_ACCOUNT_ID:-}
     depends_on:
       - news-service
       - voice-broker
     ports:
       - "8001:8001"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: finans-frontend
+    restart: unless-stopped
+    depends_on:
+      - survey-service
+    ports:
+      - "8080:8080"
 
   voice-broker:
     build:

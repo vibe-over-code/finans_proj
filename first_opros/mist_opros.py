@@ -11,8 +11,9 @@ from typing import Any
 import httpx
 import urllib3
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
-from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
+
+from tinkoff_sandbox import fetch_sandbox_portfolio, sandbox_is_configured
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -87,7 +88,13 @@ SYSTEM_PROMPT = """
 
 ### Если есть текущий портфель
 
-Если клиент упоминает инвестиции:
+Если в системном сообщении передан актуальный текущий портфель клиента из Tinkoff Sandbox:
+- используй только этот портфель как источник истины
+- не проси клиента вручную перечислять бумаги, если данных уже достаточно
+- не выдумывай отсутствующие позиции
+- оцени соответствие портфеля целям и выяви противоречия
+
+Если sandbox-портфель не передан, и клиент сам упоминает инвестиции:
 - попроси описать их простыми словами
 - оцени соответствие целям
 - проверь баланс риска
@@ -138,7 +145,7 @@ SYSTEM_PROMPT = """
   "voice_emotion_assessment": "оценка по тексту, без упоминания голоса",
   "wants": [],
   "constraints": [],
-  "current_portfolio": "...",
+  "current_portfolio": {},
   "current_portfolio_assessment": "...",
   "target_portfolio": {
     "Акции": "0-100%",
@@ -163,6 +170,9 @@ class SurveySession:
     history: list[dict[str, Any]] = field(default_factory=list)
     voice_notes: list[str] = field(default_factory=list)
     last_transcript: str = ""
+    sandbox_portfolio: dict[str, Any] | None = None
+    sandbox_prompt: str = ""
+    sandbox_error: str = ""
     created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
     last_seen: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
     lock: threading.Lock = field(default_factory=threading.Lock)
@@ -195,6 +205,7 @@ def create_session() -> SurveySession:
         session_id=str(uuid.uuid4()),
         history=[{"role": "system", "content": SYSTEM_PROMPT}],
     )
+    refresh_sandbox_portfolio(session)
     with sessions_lock:
         sessions[session.session_id] = session
     return session
@@ -294,6 +305,7 @@ def strip_structured_blocks(raw_content: str) -> str:
 
 
 def normalize_survey_result(data: dict[str, Any], session: SurveySession) -> dict[str, Any]:
+    current_portfolio = session.sandbox_portfolio if session.sandbox_portfolio is not None else data.get("current_portfolio", "")
     return {
         "goal": str(data.get("goal", "")).strip(),
         "investor_type": str(data.get("investor_type", "")).strip(),
@@ -303,7 +315,7 @@ def normalize_survey_result(data: dict[str, Any], session: SurveySession) -> dic
         "voice_emotion_assessment": str(data.get("voice_emotion_assessment") or aggregate_voice_analysis(session)).strip(),
         "wants": ensure_text_list(data.get("wants")),
         "constraints": ensure_text_list(data.get("constraints")),
-        "current_portfolio": data.get("current_portfolio", ""),
+        "current_portfolio": current_portfolio,
         "current_portfolio_assessment": str(data.get("current_portfolio_assessment", "")).strip(),
         "target_portfolio": normalize_target_portfolio(data.get("target_portfolio")),
         "profile_summary": str(data.get("profile_summary", "")).strip(),
@@ -334,8 +346,35 @@ def parse_assistant_reply(raw_reply: str, session: SurveySession) -> dict[str, A
         "status": status,
         "parsed_result": parsed_result,
         "voice_analysis": aggregate_voice_analysis(session),
+        "sandbox_portfolio": session.sandbox_portfolio,
+        "sandbox_error": session.sandbox_error,
         "json_error": json_error,
     }
+
+
+def refresh_sandbox_portfolio(session: SurveySession) -> None:
+    if not sandbox_is_configured():
+        session.sandbox_portfolio = None
+        session.sandbox_prompt = ""
+        session.sandbox_error = ""
+        return
+
+    try:
+        snapshot = fetch_sandbox_portfolio()
+    except Exception as error:
+        session.sandbox_portfolio = None
+        session.sandbox_prompt = ""
+        session.sandbox_error = str(error)
+        return
+
+    session.sandbox_portfolio = snapshot.to_dict()
+    session.sandbox_prompt = (
+        "Актуальный текущий портфель клиента получен из Tinkoff Sandbox. "
+        "Это единственный достоверный источник current_portfolio. "
+        "Не придумывай новые позиции и не проси клиента перечислять их заново, если это не нужно для уточнения целей. "
+        f"{snapshot.to_prompt_text()}"
+    )
+    session.sandbox_error = ""
 
 
 def get_token() -> str:
@@ -357,10 +396,18 @@ def get_token() -> str:
 
 def ask_gigachat(session: SurveySession, text: str) -> str:
     token = get_token()
+    refresh_sandbox_portfolio(session)
     with session.lock:
         session.history.append({"role": "user", "content": text.strip()})
         session.history = trim_history(session.history)
         messages = [dict(item) for item in session.history]
+    if session.sandbox_prompt:
+        base_system = messages[0]["content"] if messages and messages[0].get("role") == "system" else SYSTEM_PROMPT
+        combined_system = f"{base_system.strip()}\n\n---\n\n### Актуальный портфель из Tinkoff Sandbox\n{session.sandbox_prompt.strip()}"
+        if messages and messages[0].get("role") == "system":
+            messages[0] = {"role": "system", "content": combined_system}
+        else:
+            messages.insert(0, {"role": "system", "content": combined_system})
 
     payload = {
         "model": GIGACHAT_MODEL,
@@ -407,9 +454,13 @@ def call_voice_broker(filename: str, content_type: str, raw_audio: bytes) -> dic
     return response.json()
 
 
-@app.get("/", response_class=HTMLResponse)
-def index() -> str:
-    return HTML_PAGE
+@app.get("/")
+def index() -> dict[str, str]:
+    return {
+        "service": "survey-service",
+        "status": "ok",
+        "message": "Frontend was moved to a dedicated service. Use the frontend container to open the UI.",
+    }
 
 
 @app.get("/health")
@@ -418,10 +469,15 @@ def healthcheck() -> dict[str, str]:
 
 
 @app.post("/api/session/start")
-def start_session() -> dict[str, str]:
+def start_session() -> dict[str, Any]:
     session = create_session()
     notify_news_presence("register", session.session_id)
-    return {"session_id": session.session_id, "welcome_message": WELCOME_MESSAGE}
+    return {
+        "session_id": session.session_id,
+        "welcome_message": WELCOME_MESSAGE,
+        "sandbox_portfolio": session.sandbox_portfolio,
+        "sandbox_error": session.sandbox_error,
+    }
 
 
 @app.post("/api/session/ping")
@@ -446,6 +502,18 @@ def news_proxy(session_id: str, limit: int = 8) -> dict[str, Any]:
     session.last_seen = utc_now()
     notify_news_presence("ping", session_id)
     return fetch_news(limit)
+
+
+@app.get("/api/sandbox/portfolio")
+def sandbox_portfolio(session_id: str) -> dict[str, Any]:
+    session = get_session_or_404(session_id)
+    refresh_sandbox_portfolio(session)
+    if session.sandbox_error:
+        raise HTTPException(status_code=502, detail=session.sandbox_error)
+    return {
+        "portfolio": session.sandbox_portfolio,
+        "source": "tinkoff_sandbox",
+    }
 
 
 @app.post("/api/ask_text")
@@ -503,279 +571,3 @@ async def upload_voice(session_id: str = Form(...), file: UploadFile = File(...)
     return payload
 
 
-HTML_PAGE = """
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Инвест-опросник</title>
-<style>
-:root { --bg:#eef3ef; --card:#ffffff; --border:#d8dfd6; --text:#1f2a22; --muted:#5a675f; --accent:#1d6b52; }
-* { box-sizing:border-box; }
-body { margin:0; font-family:"Segoe UI",sans-serif; background:linear-gradient(180deg,#f7faf5,#eef3ef); color:var(--text); }
-.main { display:grid; grid-template-columns:1.15fr 0.85fr; gap:16px; min-height:100vh; padding:16px; }
-.panel { background:rgba(255,255,255,0.93); border:1px solid var(--border); border-radius:22px; box-shadow:0 18px 48px rgba(24,37,29,.08); overflow:hidden; }
-.head { padding:18px 20px; border-bottom:1px solid var(--border); background:linear-gradient(135deg,rgba(29,107,82,.1),rgba(255,255,255,.4)); }
-.head h1,.head h2,.card h3 { margin:0; }
-.sub { margin:6px 0 0; color:var(--muted); font-size:14px; }
-.chat { display:flex; flex-direction:column; min-height:calc(100vh - 32px); }
-.messages { flex:1; padding:18px 20px; overflow:auto; display:flex; flex-direction:column; gap:10px; }
-.msg { max-width:84%; padding:12px 14px; border-radius:16px; white-space:pre-wrap; line-height:1.45; }
-.msg.bot { align-self:flex-start; background:#eef3ef; }
-.msg.user { align-self:flex-end; background:var(--accent); color:#fff; }
-.meta { padding:0 20px 8px; color:var(--muted); font-size:13px; display:none; }
-.result { display:none; padding:0 20px 18px; }
-.card { background:#f8faf8; border:1px solid var(--border); border-radius:18px; padding:14px; }
-.grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; }
-.item { background:#fff; border:1px solid var(--border); border-radius:14px; padding:10px; }
-.label { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.05em; }
-.value { margin-top:6px; white-space:pre-wrap; font-weight:600; }
-.composer { display:flex; gap:10px; padding:16px 20px 20px; }
-.composer input { flex:1; border:1px solid var(--border); border-radius:999px; padding:14px 16px; }
-button { border:none; border-radius:999px; padding:12px 16px; cursor:pointer; font-weight:600; }
-.send,.refresh { background:var(--accent); color:#fff; }
-.voice { background:#dff0e8; color:var(--accent); }
-.voice.recording { background:#f8d9d3; color:#ad3d2f; }
-.news-body { padding:18px; display:flex; flex-direction:column; gap:12px; }
-.news { background:#f8faf8; border:1px solid var(--border); border-radius:18px; padding:14px; }
-.news p { margin:8px 0 0; color:var(--muted); line-height:1.45; }
-.row { display:flex; justify-content:space-between; gap:10px; align-items:start; }
-.badge { padding:6px 10px; border-radius:999px; background:#e4efe9; color:var(--accent); font-size:12px; font-weight:700; }
-@media (max-width:980px) { .main { grid-template-columns:1fr; } .chat { min-height:auto; } }
-@media (max-width:720px) { .grid { grid-template-columns:1fr; } .composer { flex-wrap:wrap; } .composer input { width:100%; } }
-</style>
-</head>
-<body>
-<div class="main">
-  <section class="panel chat">
-    <div class="head">
-      <h1>Опросник инвестора</h1>
-      <p class="sub">Опрос инвестора с анализом эмоций и рисковости</p>
-    </div>
-    <div id="messages" class="messages"></div>
-    <div id="voiceMeta" class="meta"></div>
-    <div id="result" class="result"></div>
-    <div class="composer">
-      <button id="voiceBtn" class="voice" type="button">Голос</button>
-      <input id="textInput" type="text" placeholder="Ответьте ассистенту" />
-      <button id="sendBtn" class="send" type="button">Отправить</button>
-    </div>
-  </section>
-  <aside class="panel">
-    <div class="head">
-      <div class="row">
-        <div>
-          <h2>Новости рынка</h2>
-          <p class="sub">Парсинг новостей с оценкой сфер на которые они влияют.</p>
-        </div>
-        <button id="refreshBtn" class="refresh" type="button">Обновить</button>
-      </div>
-      <p id="newsStatus" class="sub">Подключаем ленту...</p>
-    </div>
-    <div id="newsList" class="news-body"></div>
-  </aside>
-</div>
-<script>
-let sessionId = null;
-let mediaRecorder = null;
-let audioChunks = [];
-
-const messagesEl = document.getElementById('messages');
-const voiceMetaEl = document.getElementById('voiceMeta');
-const resultEl = document.getElementById('result');
-const textInputEl = document.getElementById('textInput');
-const sendBtnEl = document.getElementById('sendBtn');
-const voiceBtnEl = document.getElementById('voiceBtn');
-const refreshBtnEl = document.getElementById('refreshBtn');
-const newsListEl = document.getElementById('newsList');
-const newsStatusEl = document.getElementById('newsStatus');
-
-function escapeHtml(value) {
-  return String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-}
-
-function addMessage(text, side) {
-  const div = document.createElement('div');
-  div.className = 'msg ' + side;
-  div.textContent = text;
-  messagesEl.appendChild(div);
-  messagesEl.scrollTop = messagesEl.scrollHeight;
-}
-
-function renderResult(result) {
-  resultEl.style.display = 'block';
-  const portfolio = Object.entries(result.target_portfolio || {}).map(([k, v]) => `${k}: ${v}`).join('\\n');
-  const wants = (result.wants || []).join('\\n') || 'Нет данных';
-  const constraints = (result.constraints || []).join('\\n') || 'Нет данных';
-  resultEl.innerHTML = `
-    <div class="card">
-      <h3>Результат</h3>
-      <div class="grid">
-        <div class="item"><div class="label">Цель</div><div class="value">${escapeHtml(result.goal || 'Не указана')}</div></div>
-        <div class="item"><div class="label">Тип инвестора</div><div class="value">${escapeHtml(result.investor_type || 'Не определён')}</div></div>
-        <div class="item"><div class="label">Risk Index</div><div class="value">${escapeHtml(result.risk_index)}</div></div>
-        <div class="item"><div class="label">Emotion Index</div><div class="value">${escapeHtml(result.emotion_index)}</div></div>
-        <div class="item"><div class="label">Capacity Index</div><div class="value">${escapeHtml(result.capacity_index)}</div></div>
-        <div class="item"><div class="label">Анализ голоса</div><div class="value">${escapeHtml(result.voice_emotion_assessment || 'Нет данных')}</div></div>
-        <div class="item"><div class="label">Ожидания</div><div class="value">${escapeHtml(wants)}</div></div>
-        <div class="item"><div class="label">Ограничения</div><div class="value">${escapeHtml(constraints)}</div></div>
-        <div class="item"><div class="label">Текущий портфель</div><div class="value">${escapeHtml(typeof result.current_portfolio === 'string' ? result.current_portfolio : JSON.stringify(result.current_portfolio || {}, null, 2))}</div></div>
-        <div class="item"><div class="label">Оценка портфеля</div><div class="value">${escapeHtml(result.current_portfolio_assessment || 'Нет данных')}</div></div>
-        <div class="item"><div class="label">Целевой портфель</div><div class="value">${escapeHtml(portfolio || 'Нет данных')}</div></div>
-        <div class="item"><div class="label">Итоговый профиль</div><div class="value">${escapeHtml(result.profile_summary || 'Нет данных')}</div></div>
-      </div>
-    </div>`;
-}
-
-function renderVoiceMeta(data) {
-  const transcript = data?.transcript || data?.voice_broker?.transcript || '';
-  const summary = data?.voice_broker?.emotion_summary || data?.voice_analysis || '';
-  if (!transcript && !summary) {
-    voiceMetaEl.style.display = 'none';
-    voiceMetaEl.textContent = '';
-    return;
-  }
-  voiceMetaEl.style.display = 'block';
-  const parts = [];
-  if (transcript) parts.push('Расшифровка: ' + transcript);
-  if (summary) parts.push('Эмоции: ' + summary);
-  voiceMetaEl.textContent = parts.join(' | ');
-}
-
-function renderNews(items) {
-  if (!items || !items.length) {
-    newsListEl.innerHTML = '<div class="news"><strong>Пока пусто</strong><p>Сервис ещё не подготовил новости.</p></div>';
-    return;
-  }
-  newsListEl.innerHTML = items.map((item) => {
-    const analysis = item.portfolio_risk_analysis || {};
-    const badge = analysis.has_portfolio_risk ? 'Есть риск' : 'Без сигнала';
-    return `<article class="news"><div class="row"><strong>${escapeHtml(item.title || 'Без заголовка')}</strong><span class="badge">${escapeHtml(badge)}</span></div><p>${escapeHtml(item.summary || '')}</p><p>${escapeHtml(analysis.summary || '')}</p></article>`;
-  }).join('');
-}
-
-async function api(url, options = {}) {
-  const response = await fetch(url, options);
-  const data = await response.json();
-  if (!response.ok) throw new Error(data.detail || data.error || 'Ошибка запроса');
-  return data;
-}
-
-async function refreshNews() {
-  if (!sessionId) return;
-  newsStatusEl.textContent = 'Обновляем новости...';
-  try {
-    const data = await api(`/api/news?session_id=${encodeURIComponent(sessionId)}&limit=8`);
-    renderNews(data.items || []);
-    newsStatusEl.textContent = data.error || `Активных опросников: ${data.active_viewers ?? 0}`;
-  } catch (error) {
-    newsStatusEl.textContent = error.message;
-    renderNews([]);
-  }
-}
-
-function applyAssistantPayload(data) {
-  if (data.reply) addMessage(data.reply, 'bot');
-  renderVoiceMeta(data);
-  if (data.parsed_result) renderResult(data.parsed_result);
-}
-
-async function sendText() {
-  const message = textInputEl.value.trim();
-  if (!message || !sessionId) return;
-  addMessage(message, 'user');
-  textInputEl.value = '';
-  try {
-    const data = await api('/api/ask_text', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ session_id: sessionId, message })
-    });
-    applyAssistantPayload(data);
-  } catch (error) {
-    addMessage(error.message, 'bot');
-  }
-}
-
-async function uploadVoice(blob) {
-  if (!sessionId) return;
-  const formData = new FormData();
-  formData.append('session_id', sessionId);
-  formData.append('file', blob, 'voice.webm');
-  try {
-    const data = await api('/api/upload_voice', { method: 'POST', body: formData });
-    applyAssistantPayload(data);
-  } catch (error) {
-    addMessage(error.message, 'bot');
-  }
-}
-
-async function toggleRecording() {
-  if (mediaRecorder && mediaRecorder.state === 'recording') {
-    mediaRecorder.stop();
-    voiceBtnEl.classList.remove('recording');
-    voiceBtnEl.textContent = 'Голос';
-    return;
-  }
-
-  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-  mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm;codecs=opus' });
-  audioChunks = [];
-  mediaRecorder.ondataavailable = (event) => audioChunks.push(event.data);
-  mediaRecorder.onstop = () => {
-    const blob = new Blob(audioChunks, { type: 'audio/webm' });
-    addMessage('Голосовое сообщение отправлено.', 'user');
-    uploadVoice(blob);
-    stream.getTracks().forEach((track) => track.stop());
-  };
-  mediaRecorder.start();
-  voiceBtnEl.classList.add('recording');
-  voiceBtnEl.textContent = 'Стоп';
-}
-
-function closeSession() {
-  if (!sessionId) return;
-  fetch('/api/session/close', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ session_id: sessionId }),
-    keepalive: true
-  }).catch(() => {});
-}
-
-async function pingSession() {
-  if (!sessionId) return;
-  try {
-    await api('/api/session/ping', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ session_id: sessionId })
-    });
-  } catch (_) {}
-}
-
-async function init() {
-  try {
-    const data = await api('/api/session/start', { method: 'POST' });
-    sessionId = data.session_id;
-    addMessage(data.welcome_message, 'bot');
-    refreshNews();
-    setInterval(pingSession, 15000);
-    setInterval(refreshNews, 30000);
-  } catch (error) {
-    addMessage(error.message, 'bot');
-    newsStatusEl.textContent = error.message;
-  }
-}
-
-sendBtnEl.addEventListener('click', sendText);
-voiceBtnEl.addEventListener('click', toggleRecording);
-refreshBtnEl.addEventListener('click', refreshNews);
-textInputEl.addEventListener('keydown', (event) => { if (event.key === 'Enter') sendText(); });
-window.addEventListener('beforeunload', closeSession);
-window.addEventListener('load', init);
-</script>
-</body>
-</html>
-"""
